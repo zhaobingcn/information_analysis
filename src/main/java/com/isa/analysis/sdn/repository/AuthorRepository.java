@@ -9,7 +9,7 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import java.util.List;
 
 /**
- * Created by hexu on 2016/10/19.
+ * @author zhaobing
  */
 @RepositoryRestResource(collectionResourceRel = "author", path = "author")
 public interface AuthorRepository extends GraphRepository<Author> {

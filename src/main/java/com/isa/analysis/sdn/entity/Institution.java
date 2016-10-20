@@ -11,7 +11,7 @@ import org.neo4j.ogm.annotation.Relationship;
 import java.util.List;
 
 /**
- * Created by hexu on 2016/10/19.
+ * @author zhaobing
  */
 @JsonIdentityInfo(generator = JSOGGenerator.class)
 @NodeEntity(label = "Institution")

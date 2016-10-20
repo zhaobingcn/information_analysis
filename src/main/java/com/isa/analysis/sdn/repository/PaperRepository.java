@@ -4,7 +4,7 @@ import com.isa.analysis.sdn.entity.Paper;
 import org.springframework.data.neo4j.repository.GraphRepository;
 
 /**
- * Created by hexu on 2016/10/19.
+ * @author zhaobing
  */
 public interface PaperRepository extends GraphRepository<Paper> {
 

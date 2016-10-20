@@ -11,7 +11,7 @@ import org.springframework.data.neo4j.repository.config.EnableNeo4jRepositories;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 /**
- * Created by hexu on 2016/10/19.
+ * @author zhaobing
  */
 @Configuration
 //启动类的@SpringBootApplication会自动扫描同级包以及子包，所以下面的@ComponentScan不加应该没关系

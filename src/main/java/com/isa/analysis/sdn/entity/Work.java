@@ -3,7 +3,7 @@ package com.isa.analysis.sdn.entity;
 import org.neo4j.ogm.annotation.*;
 
 /**
- * Created by hexu on 2016/10/19.
+ * @author zhaobing
  */
 @RelationshipEntity(type = "work_in")
 public class Work {
