@@ -25,7 +25,7 @@ public class Neo4jTest {
         System.out.println("hello");
     }
     /**
-     * 因为是通过http连接到Neo4j数据库的，所以要预先启动Neo4j
+     * 这里通过embeded的方式连接数据库，不能启动neo4j
      */
     @Autowired
     private AuthorRepository authorRepository;
