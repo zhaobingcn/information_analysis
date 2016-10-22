@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div>
+        <form role="search" id="search">
+            <div class="form-group">
+                <input type="text" value="" placeholder="Search for Movie Title" class="form-control" name="search">
+            </div>
+            <button type="submit">Search</button>
+        </form>
+    </div>
+    <div>
+        <table id = "results">
+            <thead>
+                <tr>
+                    <th>name</th>
+                    <th>institution</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+    </div>
+
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            function search() {
+                var query = $("#search").find("input[name=search]").val();
+                $.get("/author/search/findByName?name=" + encodeURIComponent(query), function (data) {
+                    var t = $("table#results tbody").empty();
+                    if(!data) return;
+                    data = data["_embedded"].author;
+                    data.forEach(function (author) {
+                        $("<tr><td>" + author.name + "</td></tr>").appendTo(t);
+                    });
+                },"json");
+            }
+            $("#search").submit(search);
+        });
+    </script>
+</body>
+</html>
