@@ -14,6 +14,7 @@ import java.util.List;
 @RepositoryRestResource(collectionResourceRel = "author", path = "author")
 public interface AuthorRepository extends GraphRepository<Author> {
 
+    @Query("match (n:Person) where n.name = {name} return n")
     List<Author> findByName(@Param("name") String name);
 
 }
