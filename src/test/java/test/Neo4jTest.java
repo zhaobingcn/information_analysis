@@ -33,12 +33,12 @@ public class Neo4jTest {
     @Test
     public void testFind(){
 
-        List<Author> author = authorRepository.findByName("詹毅");
+        List<Author> author = authorRepository.findByName("duanjiale");
         for(Author a:author){
-            System.out.println(a.getName() + " " + a.getWork().getInstitution().getName());
-            for(Paper p: a.getPapers()){
-                System.out.println(p.getTitle());
-            }
+            System.out.println(a.getName());
+//            for(Paper p: a.getPapers()){
+//                System.out.println(p.getTitle());
+//            }
         }
 
     }
