@@ -8,12 +8,11 @@ import java.util.List;
 /**
  * Created by hexu on 2016/11/1.
  */
-@Service
 public interface AuthorService {
     /*
     根据作者名字查询
      */
-    List<Author> findByName(String name);
+    String findByName(String name);
     /*
     根据作者名字模糊查询
      */

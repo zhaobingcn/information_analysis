@@ -37,9 +37,6 @@ public class Neo4jTest {
         Collection<Author> author = authorRepository.findByNameContaining("詹毅");
         for(Author a:author){
             System.out.println(a.getName());
-//            for(Paper p: a.getPapers()){
-//                System.out.println(p.getTitle());
-//            }
         }
 
     }

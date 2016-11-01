@@ -1,5 +1,6 @@
 package com.isa.analysis.controller;
 
+import com.isa.analysis.neo4jkernel.service.AuthorService;
 import com.isa.analysis.sdn.entity.Author;
 import com.isa.analysis.sdn.repository.AuthorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,8 +24,6 @@ public class TestController {                       // TODO: 2016/10/20 need to 
 
     @RequestMapping(value = "/author")
     private Collection<Author> getAuthor(@RequestParam(value = "name", required = false) String name) throws Exception{
-            String nnn = URLDecoder.decode("%E8%A9%B9", "UTF-8");
-            System.out.println(nnn);
-            return authorRepository.findByNameContaining(nnn);
+            return authorRepository.findByNameContaining(name);
     }
 }
