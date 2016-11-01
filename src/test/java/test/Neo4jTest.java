@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import java.util.Collection;
 import java.util.List;
 
 /**
@@ -33,7 +34,7 @@ public class Neo4jTest {
     @Test
     public void testFind(){
 
-        List<Author> author = authorRepository.findByName("duanjiale");
+        Collection<Author> author = authorRepository.findByNameContaining("詹毅");
         for(Author a:author){
             System.out.println(a.getName());
 //            for(Paper p: a.getPapers()){

@@ -1,0 +1,11 @@
+com\isa\analysis\sdn\repository\InstitutionRepository.class
+com\isa\analysis\sdn\entity\Paper.class
+com\isa\analysis\sdn\repository\AuthorRepository.class
+com\isa\analysis\sdn\repository\PaperRepository.class
+com\isa\analysis\sdn\entity\Institution.class
+com\isa\analysis\config\Neo4jConfig.class
+com\isa\analysis\sdn\entity\Keyword.class
+com\isa\analysis\sdn\entity\Author.class
+com\isa\analysis\sdn\repository\KeywordRepository.class
+com\isa\analysis\SpringbootSdnEmbeddedApplication.class
+com\isa\analysis\sdn\entity\Work.class
