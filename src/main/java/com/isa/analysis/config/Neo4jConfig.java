@@ -30,7 +30,7 @@ public class Neo4jConfig extends Neo4jConfiguration {
         org.neo4j.ogm.config.Configuration config = new org.neo4j.ogm.config.Configuration();
         config.driverConfiguration()
                 .setDriverClassName("org.neo4j.ogm.drivers.embedded.driver.EmbeddedDriver")
-                .setURI("file:///MySoftware/Neo4jDatabase/Importdata");
+                .setURI("file:///ProfessionalSoftware/Neo4jDB/Importdata");
         return config;
     }
 

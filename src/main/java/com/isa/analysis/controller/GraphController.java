@@ -19,9 +19,6 @@ public class GraphController {
 
     @RequestMapping(value = "/graph")
     public Map<String, Object> graph(@RequestParam(value = "limit", required = false)Integer limit){
-//        System.out.println("qqqqq");
-//        System.out.println(limit);
-        graphService.graph(limit);
-        return null;
+        return graphService.graph(limit);
     }
 }

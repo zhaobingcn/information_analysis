@@ -10,7 +10,7 @@ import java.util.List;
  */
 public interface AuthorService {
     /*
-    根据作者名字查询
+    根据作者名字查询,查到作者名字，所属机构以及已发表论文
      */
     String findByName(String name);
     /*
