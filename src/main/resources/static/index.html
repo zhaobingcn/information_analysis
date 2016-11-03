@@ -123,7 +123,7 @@
     })
 </script>
 
-<div id="mainas" style="width: 1000px;height:400px;"></div>
+<div id="mainas" style="width: 1000px;height:800px;"></div>
 <script type="text/javascript">
     var myChart = echarts.init(document.getElementById('mainas'));
     myChart.showLoading();
@@ -131,9 +131,10 @@
         myChart.hideLoading();
         option = {
             legend: {
-                data: ['Author', 'Institution', 'Paper']
+                data: ['机构', '作者', '论文']
             },
             series: [{
+                symbolSize: 15,
                 type: 'graph',
                 layout: 'force',
                 animation: false,
@@ -151,10 +152,10 @@
                 categories: webkitDep.categories,
                 force: {
 //                     initLayout: 'circular',
-//                     gravity: 0.8,
+//                     gravity: 0.4,
 //                     repulsion: 20,
-                    edgeLength: 5,
-                    repulsion: 20
+                    edgeLength: 150,
+                    repulsion: 30
                 },
                 edges: webkitDep.links
             }]

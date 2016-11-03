@@ -10,5 +10,10 @@ import java.util.Map;
  */
 public interface GraphService {
 
+    /**
+     * 加载页面初始的图像，用了match语句查询，返回是一个Map,可以转化成echarts的json数据。
+     * @param limit
+     * @return Map
+     */
     Map<String, Object> graph(int limit);
  }
