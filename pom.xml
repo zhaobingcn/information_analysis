@@ -24,6 +24,8 @@
     <ogm-version>2.0.3</ogm-version>
     <neo4j.version>3.1.0-M03</neo4j.version>
     <spring-data-releasetrain.version>Hopper-SR1</spring-data-releasetrain.version>
+    <nd4j.version>0.6.0</nd4j.version>
+    <weka.version>3.9.0</weka.version>
   </properties>
 
   <dependencies>
@@ -114,28 +116,15 @@
     <dependency>
       <groupId>org.nd4j</groupId>
       <artifactId>nd4j-api</artifactId>
-      <version>0.6.0</version>
+      <version>${nd4j.version}</version>
     </dependency>
 
-    <!--java科学计算包-->
+    <!--java weka机器学习包-->
     <dependency>
-      <groupId>org.apache.mahout</groupId>
-      <artifactId>mahout-math</artifactId>
-      <version>0.12.2</version>
+      <groupId>nz.ac.waikato.cms.weka</groupId>
+      <artifactId>weka-dev</artifactId>
+      <version>${weka.version}</version>
     </dependency>
-
-    <!--&lt;!&ndash;java apahe机器学习包&ndash;&gt;-->
-    <!--<dependency>-->
-      <!--<groupId>org.apache.mahout</groupId>-->
-      <!--<artifactId>mahout-core</artifactId>-->
-      <!--<version>0.9</version>-->
-      <!--<exclusions>-->
-        <!--<exclusion>-->
-          <!--<groupId>org.springframework.boot</groupId>-->
-          <!--<artifactId>spring-boot-starter-tomcat</artifactId>-->
-        <!--</exclusion>-->
-      <!--</exclusions>-->
-    <!--</dependency>-->
 
   </dependencies>
 
@@ -145,7 +134,7 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>
         <configuration>
-          <fork>true</fork><!-- 如果没有该项配置，肯呢个devtools不会起作用，即应用不会restart -->
+          <fork>true</fork><!-- 如果没有该项配置， 这个detools不会起作用，即应用不会restart -->
         </configuration>
       </plugin>
     </plugins>
