@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="img/head-logo.ico" type="image/x-icon"/>
+    <meta charset="UTF-8">
+    <title>专家推荐</title>
+    <link rel="stylesheet" href="css/bootstrap.css"/>
+</head>
+<body>
+
+<div>
+    <form role="form" class="navbar-form" id="search">
+        <div calss="form-group">
+            <input type="text" value="" placeholder="输入查询关键词（多个以'/'隔开）" class="form-control" name="searchkeyword">
+            <input type="text" value="" placeholder="回避单位名称/人员姓名(选填)" class="form-control" name="searchexceptone">
+            <input type="text" value="" placeholder="回避单位名称/人员姓名(选填)" class="form-control" name="searchexcepttwo">
+        </div>
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" name="checkboxone" checked="checked">按专家影响力推荐
+            </label>
+            <label>
+                <input type="checkbox" name="checkboxtwo">按专家成果推荐
+            </label>
+        </div>
+        <button class="btn btn btn-default" type="submit">查询</button>
+    </form>
+</div>
+
+<div>
+    <table id="results" class="table table-striped table-hover">
+        <thead>
+        <tr>
+            <th>专家</th>
+            <th>所属机构</th>
+        </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

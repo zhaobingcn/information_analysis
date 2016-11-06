@@ -20,11 +20,6 @@ import java.util.List;
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = SpringbootSdnEmbeddedApplication.class)
 public class Neo4jTest {
-
-    @Test
-    public void print(){
-        System.out.println("hello");
-    }
     /**
      * 这里通过embeded的方式连接数据库，不能启动neo4j
      */
