@@ -15,15 +15,17 @@
             <input type="text" value="" placeholder="回避单位名称/人员姓名(选填)" class="form-control" name="searchexceptone">
             <input type="text" value="" placeholder="回避单位名称/人员姓名(选填)" class="form-control" name="searchexcepttwo">
         </div>
-        <div class="checkbox">
-            <label>
-                <input type="checkbox" name="checkboxone" checked="checked">按专家影响力推荐
+        <div class="radio">
+            <label class = "checkbox-inline">
+                <input type="radio" name="optionsRadiosinline" id="optionsRadios3" value="option1" checked>按专家影响力推荐
             </label>
-            <label>
-                <input type="checkbox" name="checkboxtwo">按专家成果推荐
+            <label class = "checkbox-inline">
+                <input type="radio" name="optionsRadiosinline" id="optionsRadios4" value="option2">按专家成果推荐
             </label>
         </div>
+        <div calss = "form-group">
         <button class="btn btn btn-default" type="submit">查询</button>
+        </div>
     </form>
 </div>
 
@@ -39,6 +41,7 @@
         </tbody>
     </table>
 </div>
+
 
 </body>
 </html>

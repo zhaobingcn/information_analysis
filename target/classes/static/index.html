@@ -50,6 +50,14 @@
                 </tr>
                 </thead>
                 <tbody>
+                <tr>
+                    <td>
+                        <ul class="pager">
+                            <li class="previous disabled"><a href="#">上一页</a></li>
+                            <li class="next"><a href="#">下一页</a></li>
+                        </ul>
+                    </td>
+                </tr>
                 </tbody>
             </table>
         </div>
@@ -108,7 +116,7 @@
             var query=$("#search").find("input[name=search]").val();
             $.get("/newauthors?name=" + encodeURIComponent(query),
                     function (data) {
-                        var t = $("table#results tbody").empty();
+                        var t = $("table#results tbody");
                         if (!data) return;
                         data.forEach(function (author) {
                             $("<tr><td class='movie'>" + author.authorName + "</td><td>" +author.insName+ "</td></tr>").appendTo(t)
