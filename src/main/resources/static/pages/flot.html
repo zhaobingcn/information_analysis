@@ -290,7 +290,7 @@
                                     <a href="morris.html">专家合作分析</a>
                                 </li>
                                 <li>
-                                    <a href="morris.html">专家推荐</a>
+                                    <a href="professorRecommend.html">专家推荐</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
@@ -384,14 +384,33 @@
             <!-- /.row -->
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="panel panel-default">
+                    <div class="panel panel-info">
                         <div class="panel-heading">
-                            Line Chart Example
+                            搜索要查找的专家
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
-                            <div class="flot-chart">
-                                <div class="flot-chart-content" id="flot-line-chart"></div>
+                            <div class="row">
+                                <form role="form">
+                                    <div class="col-lg-4">
+                                        <div class="form-group input-group">
+                                            <span class="input-group-addon">姓名</span>
+                                            <input type="text" class="form-control" placeholder="输入专家姓名">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="form-group input-group">
+                                            <span class="input-group-addon">机构</span>
+                                            <input type="text" class="form-control" placeholder="输入专家机构">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <button type="button" class="btn btn-outline btn-primary btn-block">检索</button>
+                                        </div>
+                                    </div>
+                                </form>
+
                             </div>
                         </div>
                         <!-- /.panel-body -->
