@@ -2,57 +2,161 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>ECharts</title>
-    <!-- 引入 echarts.js -->
-    <script src="js/echarts.js"></script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+
+    <title>ADBC</title>
+
+
+    <link rel="stylesheet" type="text/css" media="screen" href="/Work/theme/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/Work/theme/css/front.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/Work/theme/css/jquery-ui.min.css"/>
+
+    <script src="/Work/theme/js/jquery.min.js"></script>
+
+    <!--[if lt IE 9]>
+    <script src="/Work/theme/js/html5shiv.min.js"></script>
+    <script src="/Work/theme/js/respond.min.js"></script>
+    <![endif]-->
 </head>
-<body>
-<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
-<div id="main" style="width: 400px;height:400px;"></div>
-<script type="text/javascript" src="http://data-visual.cn/datav/src/js/echarts/echarts.min.js"></script>
-<!--<script type="text/javascript" src="http://data-visual.cn/datav/src/js/echarts/extension/echarts-wordcloud.min.js"></script>-->
+<body><style type="text/css">
+    .vertical-tab {
+        width: 100px;
+        height: 100%;
+        float: left;
+        overflow: hidden;
+    }
+
+    .vertical-tab > li {
+        text-align: center;
+    }
+
+    .vertical-tab > li.active > a, .vertical-tab > li.active > a:focus, .vertical-tab > li.active > a:hover {
+        border: solid #ccc;
+        border-width: 1px 0px 1px 1px;
+        background-color: #ffffff;
+        border-right: 1px solid #ffffff;
+        z-index: 2;
+    }
+
+    .vertical-tab > li > a {
+        border-radius: 4px 0px 0px 4px;
+    }
+
+    .vertical-tab-content {
+        float: left;
+        width: 90%;
+        height: 100%;
+        padding: 5px;
+        margin-left: -1px;
+        margin-bottom: 2px;
+        border-radius: 4px 4px 4px 4px;
+        border: solid 1px #ccc;
+        color: #666;
+    }
+
+    .send {
+        position: relative;
+        width: 90%;
+        background: #FFFFFF;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        border-radius: 5px; /* 圆角 */
+        border: 1px solid #ccc;
+    }
+
+    .tag {
+        width: 300px;
+        min-height: 30px;
+        border: 1px solid #ccc;
+        position: relative;
+        padding: 10px;
+        background-color: #ccc;
+        border-radius: 4px;
+        margin-left: 30px;
+        -moz-box-shadow:1px 1px 2px hsla(0, 0%, 0%, 0.3);
+        -webkit-box-shadow:1px 1px 2px hsla(0, 0%, 0%, 0.3);
+        box-shadow:1px 1px 2px hsla(0, 0%, 0%, 0.3);
+    }
+
+    .tag:before, .tag:after {
+        position:absolute;
+        content:"\00a0";
+        width:0px;
+        height:0px;
+        border-width:8px 18px 8px 0;
+        border-style:solid;
+        border-color:transparent #CCC transparent transparent;
+        top:5px;
+        left:-18px;
+
+    }
+
+    .tag:after {
+        bottom: -33px;
+        border-color: #FFF transparent transparent;
+    }
+
+
+
+</style>
+
 <script type="text/javascript">
-    var myChart = echarts.init(document.getElementById('main'));
-
-    var option = {
-        title: {
-            text: '世界人口总量',
-            subtext: '数据来自网络'
-        },
-        tooltip: {
-            trigger: 'axis',
-            axisPointer: {
-                type: 'shadow'
-            }
-        },
-        legend: {
-            data: ['2011年']
-        },
-        grid: {
-            left: '3%',
-            right: '4%',
-            bottom: '3%',
-            containLabel: true
-        },
-        xAxis: {
-            type: 'value',
-            boundaryGap: [0, 0.01]
-        },
-        yAxis: {
-            type: 'category',
-            data: ['巴西','印尼','美国','印度','中国','世界人口(万)']
-        },
-        series: [
-            {
-                name: '2011年',
-                type: 'bar',
-                data: [18203, 23489, 29034, 104970, 131744, 630230]
-            }
-        ]
-    };
-
-
-    myChart.setOption(option);
+    $(function () {
+        $('#vtab li').click(function () {
+            tops = $(this).offset().top - $('#vtab').offset().top + $('#vtab').scrollTop() - $('#vtab').height() / 4;
+            console.log(tops);
+            $('#vtab').animate({
+                scrollTop: tops
+            }, 'slow');
+        });
+    });
 </script>
+<div style="height: 100px;">
+    <!-- Nav tabs -->
+    <ul class="nav nav-tab vertical-tab" role="tablist" id="vtab">
+        <li role="presentation" class="active">
+            <a href="#home" aria-controls="home" role="tab"
+               data-toggle="tab">信息属性</a>
+        </li>
+        <li role="presentation">
+            <a href="#inbox" aria-controls="inbox" role="tab"
+               data-toggle="tab">收件箱</a>
+        </li>
+        <li role="presentation">
+            <a href="#outbox" aria-controls="outbox" role="tab"
+               data-toggle="tab">发件箱</a>
+        </li>
+        <li role="presentation">
+            <a href="#inbox1" aria-controls="inbox1" role="tab"
+               data-toggle="tab">收件箱1</a>
+        </li>
+        <li role="presentation">
+            <a href="#outbox1" aria-controls="outbox1" role="tab"
+               data-toggle="tab">发件箱1</a>
+        </li>
+    </ul>
+
+    <!-- Tab panes -->
+    <div class="tab-content vertical-tab-content">
+        <div role="tabpanel" class="tab-pane active" id="home">.home..</div>
+        <div role="tabpanel" class="tab-pane" id="inbox">.inbox..</div>
+        <div role="tabpanel" class="tab-pane" id="outbox">..outbox.</div>
+        <div role="tabpanel" class="tab-pane" id="inbox1">.inbox..</div>
+        <div role="tabpanel" class="tab-pane" id="outbox1">..outbox.</div>
+    </div>
+
+</div>
+
+<p></p>
+
+<div class="tag">
+    123456 我是一个气泡，还是一个气泡
+</div>
+
+<script src="/Work/theme/js/bootstrap.min.js"></script>
 </body>
 </html>
