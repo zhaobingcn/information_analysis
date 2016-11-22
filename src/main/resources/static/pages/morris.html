@@ -477,9 +477,10 @@
     <script src="../js/echarts.js"></script>
     <script src="../js/echarts-wordcloud.min.js"></script>
 
-    <script type="text/javascript">
+
+    <script type="text/javascript" id="professoroption">
         var myChart = echarts.init(document.getElementById("person-ability"));
-        option = {
+        var professoroption = {
             title: {
                 text: '专家能力雷达图'
             },
@@ -507,12 +508,12 @@
                 ]
             }]
         };
-        myChart.setOption(option);
+        myChart.setOption(professoroption);
     </script>
 
-    <script type="text/javascript">
+    <script type="text/javascript" id="achievementoption">
         var myChart = echarts.init(document.getElementById('publish-quote-times'));
-        option = {
+        var achievementoption = {
             title: {
                 text: '研究成果汇总',
                 subtext: '按年份排列'
@@ -569,12 +570,12 @@
                 }
             ]
         };
-        myChart.setOption(option);
+        myChart.setOption(achievementoption);
     </script>
 
-    <script type="text/javascript">
+    <script type="text/javascript" id="keywordsoption">
         var myChart = echarts.init(document.getElementById('hot-research-point'));
-        var option = {
+        var keywordsoption = {
             tooltip: {},
             series: [ {
                 type: 'wordCloud',
@@ -691,9 +692,20 @@
                 ]
             } ]
         };
-
-        myChart.setOption(option);
+        myChart.setOption(keywordsoption);
     </script>
+    
+    <script type="text/javascript">
+        window.onresize = function () {
+            var myChart = echarts.init(document.getElementById("person-ability"));
+            myChart.setOption(professoroption);
+            var myChart = echarts.init(document.getElementById('publish-quote-times'));
+            myChart.setOption(achievementoption);
+            var myChart = echarts.init(document.getElementById('hot-research-point'));
+            myChart.setOption(keywordsoption);
+        }
+    </script>
+
 </body>
 
 </html>
