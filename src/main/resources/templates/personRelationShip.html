@@ -8,7 +8,7 @@
     <script src="../static/js/dataTool.min.js"></script>
 </head>
 <body>
-<div id="personrelation" style="width: 600px;height: 800px;">
+<div id="personrelation" style="width: 1000px;height: 800px;">
 </div>
 <script type="text/javascript">
     var myChart = echarts.init(document.getElementById('personrelation'));
@@ -21,12 +21,12 @@
             console.info("category" + " " + node.category);
             node.itemStyle = null;
             node.value = node.value;
-            node.symbolSize = 31;
-//            node.label = {
-//                normal: {
-//                    show: node.symbolSize > 30
-//                }
-//            };
+            node.symbolSize = node.value*20;
+            node.label = {
+                normal: {
+                    show: node.symbolSize > 30
+                }
+            };
             node.category = node.category;
         });
         option = {
@@ -46,18 +46,18 @@
                 {
                     name: 'Les Miserables',
                     type: 'graph',
-                    layout: 'circular',
-                    circular: {
-                        rotateLabel: true
-                    },
+                    layout: 'force',
+//                    circular: {
+//                        rotateLabel: true
+//                    },
                     data: graph.nodes,
                     links: graph.links,
                     categories: graph.categories,
                     roam: true,
                     label: {
                         normal: {
-                            position: 'right',
-                            formatter: '{b}'
+                            position: 'inside',
+                            formatter: '{a}'
                         }
                     },
                     lineStyle: {
@@ -66,7 +66,10 @@
                             curveness: 0.3
                         }
                     },
-                    edgeSymbol: ['none', 'arrow']
+                    edgeSymbol: ['none', 'arrow'],
+                    force: {
+                        repulsion: 100
+                    }
                 }
             ]
         };

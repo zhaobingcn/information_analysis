@@ -32,6 +32,6 @@ public class TestThymeleaf {
 public String helloHtml(Map<String,Object> map){
 
         map.put("hello","from TemplateController.helloHtml");
-        return "/helloHtml";
+        return "/blank";
         }
         }
