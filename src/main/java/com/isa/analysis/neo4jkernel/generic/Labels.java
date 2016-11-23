@@ -10,5 +10,6 @@ public enum Labels implements Label{
     Paper,
     Keyword,
     Institution,
-    Journal
+    Journal,
+    EntitysCount
 }
