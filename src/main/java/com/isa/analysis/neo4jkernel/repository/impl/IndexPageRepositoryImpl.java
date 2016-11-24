@@ -16,6 +16,7 @@ import java.util.Map;
 /**
  * Created by hexu on 2016/11/23.
  */
+
 @Repository
 public class IndexPageRepositoryImpl implements IndexPageRepository {
 
@@ -53,6 +54,25 @@ public class IndexPageRepositoryImpl implements IndexPageRepository {
     }
 
     @Override
+    public Map<String, Long> tenHotEntitysScopeAll(String entityName) {
+        String cypher = "";
+        switch (entityName){
+            case "Institution":
+                cypher = "match (i:Institution)<-[:works_in]-(a:Author)-[pu:publish]->(p:Paper)" +
+                        " return i, sum(pu.weight)  as point order by point desc limit 10";
+                break;
+            case "Keyword":
+                cypher = "match (k:Keyword)<-[i:involve]-(p:Paper) " +
+                        "return k, count(i) as point order by point desc limit 10";
+                break;
+            case "Author":
+                cypher = "";
+                break;
+        }
+        return null;
+    }
+
+    @Override
     @Transactional
     public Map<String, Long> totalEntitysByNode() {
         ResourceIterator<Node> entityCountNode = graphDatabaseService.findNodes(Labels.EntitysCount);
@@ -61,7 +81,7 @@ public class IndexPageRepositoryImpl implements IndexPageRepository {
         entityCount.put("AuthorCount", Long.parseLong(n.getProperty("AuthorCount").toString()));
         entityCount.put("InstitutionCount", Long.parseLong(n.getProperty("InstitutionCount").toString()));
         entityCount.put("JournalCount", Long.parseLong(n.getProperty("JournalCount").toString()));
-        entityCount.put("Keyword", Long.parseLong(n.getProperty("KeywordCount").toString()));
+        entityCount.put("KeywordCount", Long.parseLong(n.getProperty("KeywordCount").toString()));
         entityCount.put("PaperCount", Long.parseLong(n.getProperty("PaperCount").toString()));
         return entityCount;
     }
