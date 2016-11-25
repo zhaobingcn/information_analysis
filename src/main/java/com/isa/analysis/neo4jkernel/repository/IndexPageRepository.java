@@ -1,6 +1,7 @@
 package com.isa.analysis.neo4jkernel.repository;
 
 import java.util.Map;
+import java.util.Objects;
 
 /**
  * Created by hexu on 2016/11/23.
@@ -20,7 +21,7 @@ public interface IndexPageRepository {
      * @param entityName
      * @return
      */
-    Map<String, Long>  tenHotEntitysScopeAll(String entityName);
+    Map<String, Long>  tenHotEntitysScopeAll(String entityName, int limit);
 
     /**
      * 根据信息存储节点查询

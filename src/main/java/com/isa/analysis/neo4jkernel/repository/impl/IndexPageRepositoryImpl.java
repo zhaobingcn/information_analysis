@@ -6,11 +6,13 @@ import org.neo4j.graphdb.GraphDatabaseService;
 import org.neo4j.graphdb.Node;
 import org.neo4j.graphdb.ResourceIterator;
 import org.neo4j.graphdb.Result;
+import org.neo4j.helpers.collection.MapUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
@@ -54,22 +56,29 @@ public class IndexPageRepositoryImpl implements IndexPageRepository {
     }
 
     @Override
-    public Map<String, Long> tenHotEntitysScopeAll(String entityName) {
+    public Map<String, Long> tenHotEntitysScopeAll(String entityName, int limit) {
         String cypher = "";
         switch (entityName){
             case "Institution":
                 cypher = "match (i:Institution)<-[:works_in]-(a:Author)-[pu:publish]->(p:Paper)" +
-                        " return i, sum(pu.weight)  as point order by point desc limit 10";
+                        " return i.name as name, sum(pu.weight) as point order by point desc limit {limit}";
                 break;
             case "Keyword":
                 cypher = "match (k:Keyword)<-[i:involve]-(p:Paper) " +
-                        "return k, count(i) as point order by point desc limit 10";
+                        "return k.name as name, count(i) as point order by point desc limit {limit}";
                 break;
             case "Author":
-                cypher = "";
+                cypher = "match (a:Author)-[pu:publish]->(p:Paper)" +
+                        " return a.name as name, sum(pu.weight) as point order by point desc limit {limit}";
                 break;
         }
-        return null;
+        Result result = graphDatabaseService.execute(cypher, MapUtil.map("limit", limit));
+        Map<String, Long> entityCount = new LinkedHashMap<>();
+        while(result.hasNext()){
+            Map<String, Object> row = result.next();
+            entityCount.put(row.get("name").toString(), Long.parseLong(row.get("point").toString()));
+        }
+        return entityCount;
     }
 
     @Override

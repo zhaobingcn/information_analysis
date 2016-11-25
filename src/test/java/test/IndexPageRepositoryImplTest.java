@@ -35,4 +35,12 @@ public class IndexPageRepositoryImplTest {
         System.out.println(a.get("AuthorCount") + " " + a.get("InstitutionCount") + " "
                + a.get("PaperCount") + " " + a.get("KeywordCount"));
     }
+
+    @Test
+    public void testTenHotEntitysScopeAll(){
+        Map<String, Long> a = indexPageRepository.tenHotEntitysScopeAll("Keyword", 10);
+        for(Map.Entry<String, Long> map: a.entrySet()){
+            System.out.println(map.getKey() + "+" + map.getValue());
+        }
+    }
 }
