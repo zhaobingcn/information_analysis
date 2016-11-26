@@ -42,7 +42,7 @@ public class GraphServiceImpl implements GraphService {
         /**
          * 初始加载50个节点做展示
          */
-        queryString.append("match (a:Author)-[:work_in]->(institution) ");
+        queryString.append("match (a:Author)-[:works_in]->(institution) ");
         queryString.append("with institution.name as inames,collect(a) as authors limit {limit} ");
         queryString.append("match (author)-[:publish]->(p:Paper) ");
         queryString.append("where author in authors ");
