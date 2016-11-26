@@ -1,4 +1,4 @@
-var myChart = echarts.init(document.getElementById('echarts-word-cloud'));
+myChart = echarts.init(document.getElementById('echarts-word-cloud'));
 $.get("cloudWord?limit=150",function (words) {
     var wordoption = {
         tooltip: {},
