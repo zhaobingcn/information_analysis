@@ -30,4 +30,9 @@ public class indexController {
         return indexPageService.influentialEntitys(entityName, limit);
     }
 
+    @RequestMapping(value = "/pages/influentialInstitutions")
+    public Map<String, Object> influentialInstitutions(@RequestParam(value = "limit", required = false)int limit){
+        String entityName = "Institution";
+        return indexPageService.influentialEntitys(entityName, limit);
+    }
 }
