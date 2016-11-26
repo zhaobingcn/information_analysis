@@ -1,5 +1,5 @@
 function loadInstitutionData(){
-    var myChart = echarts.init(document.getElementById("10-hot-institutions"))
+    var myChart = echarts.init(document.getElementById("10-hot-institutions"));
     var option = {
         title: {
             text: '热门科研机构',

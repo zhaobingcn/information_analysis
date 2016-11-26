@@ -26,7 +26,7 @@ public class IndexPageServiceImpl implements IndexPageService {
     @Override
     public Map<String, Object> cloudKeyword(int limit) {
         String entityName = "Keyword";
-        Map<String, Long> hotKeywords = indexPageRepository.tenHotEntitysScopeAll(entityName, 100);
+        Map<String, Long> hotKeywords = indexPageRepository.tenHotEntitysScopeAll(entityName, limit);
         List<Map<String, Object>> data = new ArrayList<>();
         for(Map.Entry<String, Long> word:hotKeywords.entrySet()){
             data.add(mapFormat.map("name", word.getKey(), "value", word.getValue()));

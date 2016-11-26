@@ -2,7 +2,7 @@
  * Created by zhzy on 2016/11/26.
  */
 function loadExpertsData() {
-var myChart = echarts.init(document.getElementById("10-hot-authors"))
+var myChart = echarts.init(document.getElementById("10-hot-authors"));
 var option = {
     title: {
         text: '权威专家',
@@ -13,9 +13,6 @@ var option = {
         axisPointer: {
             type: 'shadow'
         }
-    },
-    legend: {
-        data: ['2011年']
     },
     grid: {
         left: '3%',
