@@ -24,7 +24,7 @@ public class IndexPageRepositoryImplTest {
     @Test
     public void testTotalEntitys(){
         System.out.println("1233");
-        System.out.println("count" + indexPageRepository.totalEntitysScopeAll("Institution"));
+        System.out.println("count" + indexPageRepository.totalEntitysScopeAll("Paper"));
 //        assertEquals(9325l, indexPageRepository.totalEntitysScopeAll("Institution"));
     }
 
@@ -38,7 +38,7 @@ public class IndexPageRepositoryImplTest {
 
     @Test
     public void testTenHotEntitysScopeAll(){
-        Map<String, Long> a = indexPageRepository.tenHotEntitysScopeAll("Keyword", 10);
+        Map<String, Long> a = indexPageRepository.tenHotEntitysScopeAll("Journal", 10);
         for(Map.Entry<String, Long> map: a.entrySet()){
             System.out.println(map.getKey() + "+" + map.getValue());
         }

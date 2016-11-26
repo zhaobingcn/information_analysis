@@ -56,27 +56,31 @@ public class IndexPageRepositoryImpl implements IndexPageRepository {
     }
 
     @Override
+    @Transactional
     public Map<String, Long> tenHotEntitysScopeAll(String entityName, int limit) {
         String cypher = "";
         switch (entityName){
             case "Institution":
-                cypher = "match (i:Institution)<-[:works_in]-(a:Author)-[pu:publish]->(p:Paper)" +
-                        " return i.name as name, sum(pu.weight) as point order by point desc limit {limit}";
+                cypher = "match (i:Institution)<-[:works_in]-(a:Author)-[pu:publish]->(p:Paper) " +
+                        "return i.name as name, sum(pu.weight) as score order by score desc limit {limit}";
                 break;
             case "Keyword":
                 cypher = "match (k:Keyword)<-[i:involve]-(p:Paper) " +
-                        "return k.name as name, count(i) as point order by point desc limit {limit}";
+                        "return k.name as name, count(i) as score order by score desc limit {limit}";
                 break;
             case "Author":
                 cypher = "match (a:Author)-[pu:publish]->(p:Paper)" +
-                        " return a.name as name, sum(pu.weight) as point order by point desc limit {limit}";
+                        " return a.name as name, sum(pu.weight) as score order by score desc limit {limit}";
                 break;
+            case "Journal":
+                cypher = "match (j:Journal)<-[in:included_in]-(p:Paper) " +
+                        "return j.name as name,count(in) as score order by score desc limit {limit}";
         }
         Result result = graphDatabaseService.execute(cypher, MapUtil.map("limit", limit));
         Map<String, Long> entityCount = new LinkedHashMap<>();
         while(result.hasNext()){
             Map<String, Object> row = result.next();
-            entityCount.put(row.get("name").toString(), Long.parseLong(row.get("point").toString()));
+            entityCount.put(row.get("name").toString(), Long.parseLong(row.get("score").toString()));
         }
         return entityCount;
     }
