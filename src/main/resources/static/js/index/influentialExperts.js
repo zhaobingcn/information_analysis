@@ -11,7 +11,7 @@ var myChart = echarts.init(document.getElementById("10-hot-authors"));
         success: function (experts){
             expertsName = [];
             expertsValue = [];
-            for(var i=0; i<9; i++){
+            for(var i=8; i>=0; i--){
               expertsName[i] = experts.data[i].name;
                 expertsValue[i] = experts.data[i].value;
             }
