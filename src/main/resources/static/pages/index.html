@@ -785,7 +785,6 @@
             <!-- /.row -->
         </div>
         <!-- /#page-wrapper -->
-
     </div>
     <!-- /#wrapper -->
 
@@ -798,143 +797,32 @@
     <!-- Metis Menu Plugin JavaScript -->
     <script src="../vendor/metisMenu/metisMenu.min.js"></script>
 
-    <!-- Morris Charts JavaScript -->
-    <script src="../vendor/raphael/raphael.min.js"></script>
-    <script src="../vendor/morrisjs/morris.min.js"></script>
-    <script src="../data/morris-data.js"></script>
-
     <!-- echart的js和标签云的js -->
     <script type="text/javascript" src="../js/echarts.js"></script>
     <script type="text/javascript" src="../js/echarts-wordcloud.min.js"></script>
 
     <!-- 词云 -->
-    <script type="text/javascript">
-        var myChart = echarts.init(document.getElementById("echarts-word-cloud"));
-        myChart.showLoading();
-        $.get("cloudWord?limit=150",function (words) {
-            myChart.hideLoading();
-            var wordoption = {
-                tooltip: {},
-                series: [ {
-                    type: 'wordCloud',
-                    gridSize: 2,
-                    sizeRange: [12, 50],
-                    rotationRange: [0, 0],
-                    shape: 'circle',
-                    width: 600,
-                    height: 400,
-                    textStyle: {
-                        normal: {
-                            color: function () {
-                                return 'rgb(' + [
-                                            Math.round(Math.random() * 160),
-                                            Math.round(Math.random() * 160),
-                                            Math.round(Math.random() * 160)
-                                        ].join(',') + ')';
-                            }
-                        },
-                        emphasis: {
-                            shadowBlur: 10,
-                            shadowColor: '#333'
-                        }
-                    },
-                    data: [{
-                        name: 'Sam S Club',
-                        value: 10000,
-                        textStyle: {
-                            normal: {
-                                color: 'black'
-                            },
-                            emphasis: {
-                                color: 'red'
-                            }
-                        }
-                    }, {
-                        name: 'Macys',
-                        value: 6181
-                    }, {
-                        name: 'Amy Schumer',
-                        value: 4386
-                    }, {
-                        name: 'Jurassic World',
-                        value: 4055
-                    }, {
-                        name: 'Charter Communications',
-                        value: 2467
-                    }, {
-                        name: 'Chick Fil A',
-                        value: 2244
-                    }, {
-                        name: 'Planet Fitness',
-                        value: 1898
-                    }, {
-                        name: 'Pitch Perfect',
-                        value: 1484
-                    }, {
-                        name: 'Express',
-                        value: 1112
-                    }, {
-                        name: 'Home',
-                        value: 965
-                    }, {
-                        name: 'Johnny Depp',
-                        value: 847
-                    }, {
-                        name: 'Lena Dunham',
-                        value: 582
-                    }, {
-                        name: 'Lewis Hamilton',
-                        value: 555
-                    }, {
-                        name: 'KXAN',
-                        value: 550
-                    }, {
-                        name: 'Mary Ellen Mark',
-                        value: 462
-                    }, {
-                        name: 'Farrah Abraham',
-                        value: 366
-                    }, {
-                        name: 'Rita Ora',
-                        value: 360
-                    }, {
-                        name: 'Serena Williams',
-                        value: 282
-                    }, {
-                        name: 'NCAA baseball tournament',
-                        value: 273
-                    }, {
-                        name: 'Point Break',
-                        value: 265
-                    }]
-                } ]
-            };
-            myChart.setOption(wordoption);
-        });
+    <script type="text/javascript" src = "../js/index/wordClouds.js">
     </script>
 
     <!-- 十大热门科研军工集团 -->
-
-    <script type="text/javascript" src = "../js/index/institution.js">
+    <script type="text/javascript" src = "../js/index/influentialInstitution.js">
     </script>
 
     <!-- 十大权威专家 -->
-
-    <script type="text/javascript" src="../js/index/authors.js">
+    <script type="text/javascript" src="../js/index/influentialExperts.js">
     </script>
 
     <!-- 各机构所占比例 -->
-    <script type="text/javascript" src="../js/index/paperpercent.js">
+    <script type="text/javascript" src="../js/index/pieGraphOfInstitutions.js">
     </script>
 
     <!-- 经常投的期刊名称 -->
-    <script type="text/javascript" src="../js/index/hotjournal.js">
+    <script type="text/javascript" src="../js/index/pirGraphOfJournals.js">
     </script>
 
     <!-- Custom Theme JavaScript -->
     <script src="../dist/js/sb-admin-2.js"></script>
-
-
 
 </body>
 
