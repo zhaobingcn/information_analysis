@@ -1,4 +1,4 @@
-function loadCloudWord() {
+function loadCloudWordsData() {
     var myChart = echarts.init(document.getElementById("echarts-word-cloud"));
     myChart.showLoading();
     $.get("cloudWord?limit=200",function (words) {
@@ -34,4 +34,4 @@ function loadCloudWord() {
         myChart.setOption(option);
     });
 };
-loadCloudWord();
+loadCloudWordsData();

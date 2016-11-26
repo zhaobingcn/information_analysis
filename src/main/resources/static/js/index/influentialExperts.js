@@ -1,7 +1,7 @@
 /**
  * Created by zhzy on 2016/11/26.
  */
-function load() {
+function loadExpertsData() {
 var myChart = echarts.init(document.getElementById("10-hot-authors"))
 var option = {
     title: {
@@ -40,5 +40,6 @@ var option = {
 
     ]
 };
+    myChart.setOption(option);
 }
-load();
+loadExpertsData();
