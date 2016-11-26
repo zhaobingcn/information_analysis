@@ -24,15 +24,15 @@ public class IndexPageServiceImpl implements IndexPageService {
     private MapFormat mapFormat;
 
     @Override
-    public Map<String, Object> cloudKeyword(int limit) {
-        String entityName = "Keyword";
-        Map<String, Long> hotKeywords = indexPageRepository.tenHotEntitysScopeAll(entityName, limit);
-        List<Map<String, Object>> data = new ArrayList<>();
-        for(Map.Entry<String, Long> word:hotKeywords.entrySet()){
-            data.add(mapFormat.map("name", word.getKey(), "value", word.getValue()));
+    public Map<String, Object> influentialEntitys(String entityName, int limit) {
+        Map<String, Long> hotEntitys = indexPageRepository.tenHotEntitysScopeAll(entityName, limit);
+        List<Map<String, Object>> dataGroup = new ArrayList<>();
+        for(Map.Entry<String, Long> oneOfEntityData:hotEntitys.entrySet()){
+            dataGroup.add(mapFormat.map("name", oneOfEntityData.getKey(), "value", oneOfEntityData.getValue()));
         }
-        Map<String, Object> words = new HashMap<>();
-        words.put("data", data);
-        return words;
+        Map<String, Object> finalInfluentialEntityData = new HashMap<>();
+        finalInfluentialEntityData.put("data", dataGroup);
+        return finalInfluentialEntityData;
     }
+
 }

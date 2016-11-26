@@ -38,7 +38,7 @@ public class IndexPageRepositoryImplTest {
 
     @Test
     public void testTenHotEntitysScopeAll(){
-        Map<String, Long> a = indexPageRepository.tenHotEntitysScopeAll("Journal", 10);
+        Map<String, Long> a = indexPageRepository.tenHotEntitysScopeAll("Author", 10);
         for(Map.Entry<String, Long> map: a.entrySet()){
             System.out.println(map.getKey() + "+" + map.getValue());
         }

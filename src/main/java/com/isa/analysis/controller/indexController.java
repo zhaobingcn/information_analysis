@@ -18,9 +18,16 @@ public class indexController {
     @Autowired
     private IndexPageService indexPageService;
 
-    @RequestMapping(value = "/pages/cloudWord")
-    public Map<String, Object> cloudWord(@RequestParam(value = "limit", required = false)int limit){
-        return indexPageService.cloudKeyword(limit);
+    @RequestMapping(value = "/pages/wordsCloud")
+    public Map<String, Object> wordsCloud(@RequestParam(value = "limit", required = false)int limit){
+        String entityName = "Keyword";
+        return indexPageService.influentialEntitys(entityName, limit);
+    }
+
+    @RequestMapping(value = "/pages/influentialExperts")
+    public Map<String, Object> influentialExperts(@RequestParam(value = "limit", required = false)int limit){
+        String entityName = "Author";
+        return indexPageService.influentialEntitys(entityName, limit);
     }
 
 }

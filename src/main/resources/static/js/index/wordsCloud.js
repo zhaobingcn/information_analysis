@@ -1,8 +1,8 @@
-function loadCloudWordsData() {
+function loadWordsCloudData() {
     var myChart = echarts.init(document.getElementById("echarts-word-cloud"));
     myChart.showLoading();
     $.ajax({
-        url:"/pages/cloudWord",
+        url:"/pages/wordsCloud",
         dataType:"json",
         type:"get",
         data:{"limit": 150},
@@ -40,4 +40,4 @@ function loadCloudWordsData() {
         }
     });
 };
-loadCloudWordsData();
+loadWordsCloudData();

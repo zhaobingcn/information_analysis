@@ -8,9 +8,10 @@ import java.util.Map;
 public interface IndexPageService {
 
     /**
-     * 生成词云的方法，limit为显示关键词个数，暂定100
+     * 有影响力的关键词，专家，机构，limit为显示个数
      * @param limit
      * @return
      */
-    Map<String, Object> cloudKeyword(int limit);
+    Map<String, Object> influentialEntitys(String entityName, int limit);
+
 }

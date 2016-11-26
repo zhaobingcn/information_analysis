@@ -3,40 +3,55 @@
  */
 function loadExpertsData() {
 var myChart = echarts.init(document.getElementById("10-hot-authors"));
-var option = {
-    title: {
-        text: '权威专家',
-        subtext: '数据截止2016年'
-    },
-    tooltip: {
-        trigger: 'axis',
-        axisPointer: {
-            type: 'shadow'
-        }
-    },
-    grid: {
-        left: '3%',
-        right: '4%',
-        bottom: '3%',
-        containLabel: true
-    },
-    xAxis: {
-        type: 'value',
-        boundaryGap: [0, 0.01]
-    },
-    yAxis: {
-        type: 'category',
-        data: ['素还真','剑非道','谈无欲','玉清诀','红尘雪','练习生','墨倾池','叹稀奇', '无限']
-    },
-    series: [
-        {
-            name: '发表论文数量',
-            type: 'bar',
-            data: [18, 23, 29, 10, 13, 63,67,34,34 ]
-        },
+    $.ajax({
+        url:"/pages/influentialExperts",
+        dataType:"json",
+        type:"get",
+        data:{"limit": 9},
+        success: function (experts){
+            expertsName = [];
+            expertsValue = [];
+            for(var i=0; i<9; i++){
+              expertsName[i] = experts.data[i].name;
+                expertsValue[i] = experts.data[i].value;
+            }
+            var option = {
+                title: {
+                    text: '权威专家',
+                    subtext: '数据截止2016年'
+                },
+                tooltip: {
+                    trigger: 'axis',
+                    axisPointer: {
+                        type: 'shadow'
+                    }
+                },
+                grid: {
+                    left: '3%',
+                    right: '4%',
+                    bottom: '3%',
+                    containLabel: true
+                },
+                xAxis: {
+                    type: 'value',
+                    boundaryGap: [0, 0.01]
+                },
+                yAxis: {
+                    type: 'category',
+                    data: expertsName
+                },
+                series: [
+                    {
+                        name: '发表论文数量',
+                        type: 'bar',
+                        data: expertsValue
+                    },
 
-    ]
-};
-    myChart.setOption(option);
+                ]
+            };
+            myChart.setOption(option);
+        }
+    });
+
 }
 loadExpertsData();
