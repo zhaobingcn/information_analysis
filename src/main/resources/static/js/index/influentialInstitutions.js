@@ -9,8 +9,8 @@ function loadInstitutionData(){
             institutionsName = [];
             institutionsValue = [];
             for(var i=8; i>=0; i--){
-                institutionsName[i] = institutions.data[i].name;
-                institutionsValue[i] = institutions.data[i].value;
+                institutionsName[8-i] = institutions.data[i].name;
+                institutionsValue[8-i] = institutions.data[i].value;
             }
             var option = {
                 title: {
