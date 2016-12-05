@@ -1,7 +1,6 @@
 package com.isa.analysis.controller;
 
 import com.isa.analysis.neo4jkernel.service.IndexPageService;
-import org.apache.commons.collections.map.HashedMap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.web.ServerProperties;
 import org.springframework.stereotype.Controller;
@@ -9,8 +8,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.websocket.Session;
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -47,9 +49,10 @@ public class indexController {
     }
 
     @RequestMapping("/index")
-    public String helloHtml(HttpSession session){
-        Map<String, Object> a = new HashedMap();
-        a.put("name", "zhaobing");
+    public String helloHtml(HttpServletRequest request, HttpServletResponse response){
+//        request.getSession().setAttribute("name", "zhaobing");
+        HttpSession session = request.getSession();
+        session.setAttribute("name", "zhaobing");
         return "/index";
     }
 }
