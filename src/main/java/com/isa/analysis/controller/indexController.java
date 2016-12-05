@@ -1,6 +1,7 @@
 package com.isa.analysis.controller;
 
 import com.isa.analysis.neo4jkernel.service.IndexPageService;
+import org.apache.commons.collections.map.HashedMap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.web.ServerProperties;
 import org.springframework.stereotype.Controller;
@@ -46,8 +47,9 @@ public class indexController {
     }
 
     @RequestMapping("/index")
-    public String helloHtml(HttpSession a){
-        a.setAttribute("name", "zhaobing");
+    public String helloHtml(HttpSession session){
+        Map<String, Object> a = new HashedMap();
+        a.put("name", "zhaobing");
         return "/index";
     }
 }
