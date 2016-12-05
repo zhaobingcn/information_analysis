@@ -8,6 +8,18 @@ function loadWordsCloudData() {
         data:{"limit": 150},
         success: function (words) {
             myChart.hideLoading();
+            $wordList = $("#list-influential-words").empty();
+            for(var i=0; i<10; i++){
+                $wordList.append(
+                "<a href=\"#\" class=\"list-group-item\">" +
+                    "<i class=\"fa fa-star fa-fw\"></i>" + words.data[i].name +
+                    "<span class=\"pull-right text-muted small\">" +
+                    "<em>" + words.data[i].value + "次" +
+                    "</em>" +
+                    "</span>" +
+                "</a>"
+                );
+            }
             var option = {
                 tooltip: {},
                 series: [ {

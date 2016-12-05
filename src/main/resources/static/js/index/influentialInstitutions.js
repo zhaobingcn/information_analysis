@@ -12,6 +12,10 @@ function loadInstitutionData(){
                 institutionsName[8-i] = institutions.data[i].name;
                 institutionsValue[8-i] = institutions.data[i].value;
             }
+            $tableList = $("#table-ten-institutions").empty();
+            for(var i=8; i>=0; i--){
+                $tableList.append("<tr><td>" + institutionsName[i] + "</td><td>" + institutionsValue[i] + "</td></tr>")
+            }
             var option = {
                 title: {
                     text: '热门科研机构',

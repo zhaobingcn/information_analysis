@@ -15,6 +15,10 @@ var myChart = echarts.init(document.getElementById("10-hot-authors"));
                 expertsName[8-i] = experts.data[i].name;
                 expertsValue[8-i] = experts.data[i].value;
             }
+            $tableList = $("#table-ten-authors").empty();
+            for(var i=8; i>=0; i--){
+                $tableList.append("<tr><td>" + expertsName[i] + "</td><td>" + expertsValue[i] + "</td></tr>")
+            }
             var option = {
                 title: {
                     text: '权威专家',
