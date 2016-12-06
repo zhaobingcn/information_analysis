@@ -17,7 +17,7 @@ import java.util.Map;
  * Created by hexu on 2016/11/23.
  */
 @Controller
-public class indexController {
+public class IndexController {
 
     @Autowired
     private IndexPageService indexPageService;
@@ -47,7 +47,7 @@ public class indexController {
     }
 
     @RequestMapping("/index")
-    public String helloHtml(HttpSession session){
+    public String index(HttpSession session){
         session.setAttribute("name", "zhao");
 //        HttpSession session = request.getSession();
 //        session.setAttribute("name", "zhaobing");
