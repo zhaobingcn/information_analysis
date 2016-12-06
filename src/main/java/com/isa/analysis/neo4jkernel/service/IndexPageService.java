@@ -14,4 +14,6 @@ public interface IndexPageService {
      */
     Map<String, Object> influentialEntitys(String entityName, int limit);
 
+    Map<String, Long> totalEntitys();
+
 }

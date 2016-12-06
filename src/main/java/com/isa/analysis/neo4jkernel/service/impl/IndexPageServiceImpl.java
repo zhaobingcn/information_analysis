@@ -35,4 +35,14 @@ public class IndexPageServiceImpl implements IndexPageService {
         return finalInfluentialEntityData;
     }
 
+    @Override
+    public Map<String, Long> totalEntitys() {
+        Map<String, Long> totalEntitys = new HashMap<>();
+        totalEntitys.put("institutions", indexPageRepository.totalEntitysScopeAll("Institution"));
+        totalEntitys.put("authors", indexPageRepository.totalEntitysScopeAll("Author"));
+        totalEntitys.put("papers", indexPageRepository.totalEntitysScopeAll("Paper"));
+        totalEntitys.put("keywords", indexPageRepository.totalEntitysScopeAll("Keyword"));
+        return totalEntitys;
+    }
+
 }

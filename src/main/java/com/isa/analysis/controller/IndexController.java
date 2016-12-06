@@ -2,6 +2,7 @@ package com.isa.analysis.controller;
 
 import com.isa.analysis.neo4jkernel.service.IndexPageService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.SystemEnvironmentPropertySource;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -47,10 +48,13 @@ public class IndexController {
     }
 
     @RequestMapping("/index")
-    public String index(HttpSession session){
-        session.setAttribute("name", "zhao");
-//        HttpSession session = request.getSession();
-//        session.setAttribute("name", "zhaobing");
+    public String index(Map<String, Long> model, HttpSession session){
+        session.setAttribute("name", "赵炳");
+        Map<String, Long> totalEntitys = indexPageService.totalEntitys();
+        model.put("institutions", totalEntitys.get("institutions"));
+        model.put("papers", totalEntitys.get("papers"));
+        model.put("authors", totalEntitys.get("authors"));
+        model.put("keywords", totalEntitys.get("keywords"));
         return "/index";
     }
 }
