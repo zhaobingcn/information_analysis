@@ -26,6 +26,8 @@
     <!-- Custom Fonts -->
     <link href="/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
+    <link href="/css/dashboard.css" rel="stylesheet">
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -39,7 +41,6 @@
             background-image: url(/img/neo4j_background.gif);
         }
     </style>
-
 </head>
 
 <body>
@@ -55,7 +56,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.vm">军事科研情报分析</a>
+                <a class="navbar-brand" href="index.html">军事科研情报分析系统</a>
             </div>
             <!-- /.navbar-header -->
 
@@ -255,7 +256,7 @@
                         <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
-                        <li><a href="#"><i class="fa fa-user fa-fw"></i>#set($name = $session.getAttribute("name")) $name</a>
+                        <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
                         </li>
                         <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                         </li>
@@ -285,7 +286,7 @@
                             <!-- /input-group -->
                         </li>
                         <li>
-                            <a href="index.vm"><i class="fa fa-dashboard fa-fw"></i> 主页</a>
+                            <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> 主页</a>
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> 领域专家分析<span class="fa arrow"></span></a>
@@ -306,7 +307,7 @@
                             <a href="tables.html"><i class="fa fa-table fa-fw"></i> 科研机构分析</a>
                         </li>
                         <li>
-                            <a href="forms.html"><i class="fa fa-edit fa-fw"> </i> 科研重点演化</a>
+                            <a href="forms.html"><i class="fa fa-edit fa-fw"></i> 科研重点演化</a>
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-wrench fa-fw"></i> 科研机构能力度量<span class="fa arrow"></span></a>
@@ -366,7 +367,7 @@
                             <a href="#"><i class="fa fa-files-o fa-fw"></i> Sample Pages<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="/blank">Blank Page</a>
+                                    <a href="blank.html">Blank Page</a>
                                 </li>
                                 <li>
                                     <a href="login.html">Login Page</a>
@@ -384,368 +385,223 @@
         <div id="page-wrapper" class="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">军事科研情报详情</h1>
+                    <h1 class="page-header">专家信息详情</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
             <!-- /.row -->
             <div class="row">
-                <div class="col-lg-3 col-md-6">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">
-                            <div class="row">
-                                <div class="col-xs-3">
-                                    <i class="fa fa-institution fa-4x"></i>
-                                </div>
-                                <div class="col-xs-9 text-right">
-                                    <div class="huge">${institutions}</div>
-                                    <div>收录研究机构总数</div>
-                                </div>
-                            </div>
-                        </div>
-                        <a href="#">
-                            <div class="panel-footer">
-                                <span class="pull-left">查看详情</span>
-                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                <div class="clearfix"></div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="panel panel-green">
-                        <div class="panel-heading">
-                            <div class="row">
-                                <div class="col-xs-3">
-                                    <i class="fa fa-files-o fa-4x"></i>
-                                </div>
-                                <div class="col-xs-9 text-right">
-                                    <div class="huge">${papers}</div>
-                                    <div>收录论文总数</div>
-                                </div>
-                            </div>
-                        </div>
-                        <a href="#">
-                            <div class="panel-footer">
-                                <span class="pull-left">查看详情</span>
-                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                <div class="clearfix"></div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="panel panel-yellow">
-                        <div class="panel-heading">
-                            <div class="row">
-                                <div class="col-xs-3">
-                                    <i class="fa fa-users fa-4x"></i>
-                                </div>
-                                <div class="col-xs-9 text-right">
-                                    <div class="huge">${authors}</div>
-                                    <div>收录专家总数</div>
-                                </div>
-                            </div>
-                        </div>
-                        <a href="#">
-                            <div class="panel-footer">
-                                <span class="pull-left">查看详情</span>
-                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                <div class="clearfix"></div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="panel panel-red">
-                        <div class="panel-heading">
-                            <div class="row">
-                                <div class="col-xs-3">
-                                    <i class="fa fa-star fa-4x"></i>
-                                </div>
-                                <div class="col-xs-9 text-right">
-                                    <div class="huge">${keywords}</div>
-                                    <div>收录研究方向总数</div>
-                                </div>
-                            </div>
-                        </div>
-                        <a href="#">
-                            <div class="panel-footer">
-                                <span class="pull-left">查看详情</span>
-                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                <div class="clearfix"></div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <!-- /.row -->
-            <div class="row">
                 <div class="col-lg-8">
-                    <div class="panel panel-yellow">
+                    <div class="panel panel-danger">
                         <div class="panel-heading">
-                            <i class="fa fa-bar-chart-o fa-fw"></i> 当前热门研究方向
-                            <div class="pull-right">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
-                                        Actions
-                                        <span class="caret"></span>
-                                    </button>
-                                    <ul class="dropdown-menu pull-right" role="menu">
-                                        <li><a href="#">Action</a>
-                                        </li>
-                                        <li><a href="#">Another action</a>
-                                        </li>
-                                        <li><a href="#">Something else here</a>
-                                        </li>
-                                        <li class="divider"></li>
-                                        <li><a href="#">Separated link</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
+                            专家详情
                         </div>
-                        <!-- /.panel-heading -->
                         <div class="panel-body">
+                            <div class="col-lg-3 col-xs-3">
+                                <i class="fa fa-user fa-5x"></i>
+                                <div class="huge">詹毅</div>
+                            </div>
+                            <div class="col-lg-9 col-xs-9">
+                                <div>
+                                    <div id="big_stats" class="cf">
+                                        <div class="stat"> <i class="fa fa-link"></i> <span class="value">77</span> </div>
+                                        <!-- .stat -->
 
-                            <!--<div id="morris-area-chart"></div> todo-->
-                            <div id="echarts-word-cloud" style="width: 100%;height:400px;"></div>
+                                        <div class="stat"> <i class="fa fa-star"></i> <span class="value">34</span> </div>
+                                        <!-- .stat -->
 
-                        </div>
-                        <!-- /.panel-body -->
-                    </div>
-                    <!-- /.panel -->
-                    <div class="panel panel-yellow">
-                        <div class="panel-heading">
-                            <i class="fa fa-bar-chart-o fa-fw"></i> 十大热门机构
-                            <div class="pull-right">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
-                                        Actions
-                                        <span class="caret"></span>
-                                    </button>
-                                    <ul class="dropdown-menu pull-right" role="menu">
-                                        <li><a href="#">Action</a>
-                                        </li>
-                                        <li><a href="#">Another action</a>
-                                        </li>
-                                        <li><a href="#">Something else here</a>
-                                        </li>
-                                        <li class="divider"></li>
-                                        <li><a href="#">Separated link</a>
-                                        </li>
-                                    </ul>
+                                        <div class="stat"> <i class="fa fa-strikethrough"></i> <span class="value">56</span> </div>
+                                        <!-- .stat -->
+
+                                        <div class="stat"> <i class="fa fa-won"></i> <span class="value">66</span> </div>
+                                        <!-- .stat -->
+                                    </div>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                    <div class="panel-danger">
+                        <div class="panel-heading">
+                            研究成果汇总
+                        </div>
+                        <div class="panel-body">
+                            <div id="publish-quote-times" style="width: 100%; height: 300px;">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-danger">
+                        <div class="panel-heading">
+                            人物关系
+                        </div>
+                        <div class="panel-body">
+                            <div id="author-relationship" style="width: 100%; height: 450px;">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-danger">
+                        <div class="panel-heading">
+                            <i class="fa fa-bell fa-fw"></i> 发表的论文
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
-                            <div class="row">
-                                <div class="col-lg-4">
-                                    <div class="table-responsive">
-                                        <table class="table table-bordered table-hover table-striped">
-                                            <thead>
-                                                <tr>
-                                                    <th>机构名称</th>
-                                                    <th>论文数量</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody id = "table-ten-institutions">
-                                                <tr>
-                                                    <td>中电科20所</td>
-                                                    <td>324234</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>中电科54所</td>
-                                                    <td>343244353</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>中航科工</td>
-                                                    <td>566456</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>哈尔滨工业大学</td>
-                                                    <td>6734535</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>清华大学</td>
-                                                    <td>54634435</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>中电科创新院</td>
-                                                    <td>453535</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>中国兵器集团</td>
-                                                    <td>54646435</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>北京大学</td>
-                                                    <td>656345</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>中电科电科院</td>
-                                                    <td>5623423535</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                    <!-- /.table-responsive -->
-                                </div>
-                                <!-- /.col-lg-4 (nested) -->
-                                <div class="col-lg-8">
-                                    <div id="10-hot-institutions" style="width: 100%; height:500px;">
-                                    </div>
-                                </div>
-                                <!-- /.col-lg-8 (nested) -->
-                            </div>
-                            <!-- /.row -->
-                        </div>
-                        <!-- /.panel-body -->
-                    </div>
-                    <!-- /.panel -->
-                    <div class="panel panel-yellow">
-                        <div class="panel-heading">
-                            <i class="fa fa-bar-chart-o fa-fw"></i> 十大权威专家
-                            <div class="pull-right">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
-                                        Actions
-                                        <span class="caret"></span>
-                                    </button>
-                                    <ul class="dropdown-menu pull-right" role="menu">
-                                        <li><a href="#">Action</a>
-                                        </li>
-                                        <li><a href="#">Another action</a>
-                                        </li>
-                                        <li><a href="#">Something else here</a>
-                                        </li>
-                                        <li class="divider"></li>
-                                        <li><a href="#">Separated link</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- /.panel-heading -->
-                        <div class="panel-body">
-                            <div class="row">
-                                <div class="col-lg-4">
-                                    <div class="table-responsive">
-                                        <table class="table table-bordered table-hover table-striped">
-                                            <thead>
-                                            <tr>
-                                                <th>专家名称</th>
-                                                <th>论文数量</th>
-                                            </tr>
-                                            </thead>
-                                            <tbody id = "table-ten-authors">
-                                            <tr>
-                                                <td>墨倾池</td>
-                                                <td>34</td>
-                                            </tr>
-                                            <tr>
-                                                <td>叹希奇</td>
-                                                <td>34</td>
-                                            </tr>
-                                            <tr>
-                                                <td>剑非道</td>
-                                                <td>56</td>
-                                            </tr>
-                                            <tr>
-                                                <td>解封鏑</td>
-                                                <td>67</td>
-                                            </tr>
-                                            <tr>
-                                                <td>素还真</td>
-                                                <td>63</td>
-                                            </tr>
-                                            <tr>
-                                                <td>谈无欲</td>
-                                                <td>45</td>
-                                            </tr>
-                                            <tr>
-                                                <td>御清绝</td>
-                                                <td>54</td>
-                                            </tr>
-                                            <tr>
-                                                <td>练习生</td>
-                                                <td>65</td>
-                                            </tr>
-                                            <tr>
-                                                <td>红尘雪</td>
-                                                <td>56</td>
-                                            </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                    <!-- /.table-responsive -->
-                                </div>
-                                <!-- /.col-lg-4 (nested) -->
-                                <div class="col-lg-8">
-                                    <div id="10-hot-authors" style="width: 100%; height:500px;">
-                                    </div>
-                                </div>
-                                <!-- /.col-lg-8 (nested) -->
-                            </div>
-                            <!-- /.row -->
-                        </div>
-                        <!-- /.panel-body -->
-                    </div>
-                    <!-- /.panel -->
-                </div>
-                <!-- /.col-lg-8 -->
-                <div class="col-lg-4">
-                    <div class="panel panel-yellow">
-                        <div class="panel-heading">
-                            <i class="fa fa-bell fa-fw"></i> 热门研究方向
-                        </div>
-                        <!-- /.panel-heading -->
-                        <div class="panel-body">
-                            <div class="list-group" id = "list-influential-words">
+                            <div class="list-group">
+                                <a href="http://d.wanfangdata.com.cn/Periodical/dndxxb201401014" class="list-group-item">
+                                    <i class="fa fa-star fa-fw"></i> 基于FPGA的Turbo码译码算法实现
+                                    <span class="pull-right text-muted small">引用量：<em>40 次</em>
+                                    </span>
+                                </a>
                                 <a href="#" class="list-group-item">
-                                    <i class="fa fa-star fa-fw"></i> 机器学习
+                                    <i class="fa fa-star fa-fw"></i> 一种基于伪随机动态补偿的12位250 MS／s流水线ADC
+                                    <span class="pull-right text-muted small">引用量：<em>12 次</em>
+                                    </span>
+                                </a>
+                                <a href="#" class="list-group-item">
+                                    <i class="fa fa-star fa-fw"></i> 基于随机有限元方法的机械结构可靠性评估
+                                    <span class="pull-right text-muted small">引用量：<em>25 次</em>
+                                    </span>
+                                </a>
+                                <a href="#" class="list-group-item">
+                                    <i class="fa fa-star fa-fw"></i> 多站无源跟踪系统容错算法F
+                                    <span class="pull-right text-muted small">引用量：<em>70 次</em>
+                                    </span>
+                                </a>
+                                <a href="#" class="list-group-item">
+                                    <i class="fa fa-star fa-fw"></i> 雷达辐射源信号脉内特征分析
+                                    <span class="pull-right text-muted small">引用量：<em>82 次</em>
+                                    </span>
+                                </a>
+                                <a href="#" class="list-group-item">
+                                    <i class="fa fa-star fa-fw"></i> 宽带码分多址信号的戈尔德序列盲识别
+                                    <span class="pull-right text-muted small">引用量：<em>65 次</em>
+                                    </span>
+                                </a>
+                                <a href="#" class="list-group-item">
+                                    <i class="fa fa-star fa-fw"></i> 非周期长码直扩信号的伪随机码盲估计
+                                    <span class="pull-right text-muted small">引用量：<em>33 次</em>
+                                    </span>
+                                </a>
+                                <a href="#" class="list-group-item">
+                                    <i class="fa fa-star fa-fw"></i> 基于Chirplet原子的雷达辐射源信号特征提取
+                                    <span class="pull-right text-muted small">引用量：<em>66 次</em>
+                                    </span>
+                                </a>
+                                <a href="#" class="list-group-item">
+                                    <i class="fa fa-star fa-fw"></i> 雷达辐射源信号模糊函数主脊切面特征提取方法
+                                    <span class="pull-right text-muted small">引用量：<em>23 次</em>
+                                    </span>
+                                </a>
+                            </div>
+                            <!-- /.list-group -->
+                            <a href="#" class="btn btn-default btn-block">下一页</a>
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="panel-danger">
+                        <div class="panel-heading">
+                            专家能力值
+                        </div>
+                        <div class="panel-body">
+                            <div id="person-ability" style="width: 100%; height: 300px;">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-danger">
+                        <div class="panel-heading">
+                            研究方向聚焦
+                        </div>
+                        <div class="panel-body">
+                            <div id="hot-research-point" style="width: 100%; height: 300px;">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-danger">
+                        <div class="panel-heading">
+                            <i class="fa fa-bell fa-fw"></i> 经常合作的学者
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <div class="list-group">
+                                <a href="#" class="list-group-item">
+                                    <i class="fa fa-user fa-fw"></i> 赵知劲
+                                    <span class="pull-right text-muted">中国电子科技集团33所
+                                    </span>
+                                </a>
+                                <a href="#" class="list-group-item">
+                                    <i class="fa fa-user fa-fw"></i> 墨倾池
+                                    <span class="pull-right text-muted ">中国电子科技集团33所
+                                    </span>
+                                </a>
+                                <a href="#" class="list-group-item">
+                                    <i class="fa fa-user fa-fw"></i> 剑非道
+                                    <span class="pull-right text-muted ">中国电子科技集团33所
+                                    </span>
+                                </a>
+                                <a href="#" class="list-group-item">
+                                    <i class="fa fa-user fa-fw"></i> 红尘雪
+                                    <span class="pull-right text-muted ">中国电子科技集团33所
+                                    </span>
+                                </a>
+                                <a href="#" class="list-group-item">
+                                    <i class="fa fa-user fa-fw"></i> 天罗子
+                                    <span class="pull-right text-muted ">中国电子科技集团33所
+                                    </span>
+                                </a>
+                                <a href="#" class="list-group-item">
+                                    <i class="fa fa-user fa-fw"></i> 无梦生
+                                    <span class="pull-right text-muted ">中国电子科技集团33所
+                                    </span>
+                                </a>
+                            </div>
+                            <!-- /.list-group -->
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <div class="panel panel-danger">
+                        <div class="panel-heading">
+                            <i class="fa fa-bell fa-fw"></i> 经常合作的机构
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <div class="list-group">
+                                <a href="#" class="list-group-item">
+                                    <i class="fa fa-institution fa-fw"></i> 中国电子科技集团28所
                                     <span class="pull-right text-muted small"><em>40 次</em>
                                     </span>
                                 </a>
                                 <a href="#" class="list-group-item">
-                                    <i class="fa fa-star fa-fw"></i> 物联网
+                                    <i class="fa fa-institution fa-fw"></i> 中国电子科技集团38所
                                     <span class="pull-right text-muted small"><em>12 次</em>
                                     </span>
                                 </a>
                                 <a href="#" class="list-group-item">
-                                    <i class="fa fa-star fa-fw"></i> 模式识别
+                                    <i class="fa fa-institution fa-fw"></i> 中国电子科技集团55所
                                     <span class="pull-right text-muted small"><em>25 次</em>
                                     </span>
                                 </a>
                                 <a href="#" class="list-group-item">
-                                    <i class="fa fa-star fa-fw"></i> FPGA
+                                    <i class="fa fa-institution fa-fw"></i> 中国电子科技集团17所
                                     <span class="pull-right text-muted small"><em>70 次</em>
                                     </span>
                                 </a>
                                 <a href="#" class="list-group-item">
-                                    <i class="fa fa-star fa-fw"></i> 大数据
+                                    <i class="fa fa-institution fa-fw"></i> 中国电子科技集团66所
                                     <span class="pull-right text-muted small"><em>82 次</em>
                                     </span>
                                 </a>
                                 <a href="#" class="list-group-item">
-                                    <i class="fa fa-star fa-fw"></i> 智能科学
+                                    <i class="fa fa-institution fa-fw"></i> 中国电子科技集团12所
                                     <span class="pull-right text-muted small"><em>65 次</em>
                                     </span>
                                 </a>
                                 <a href="#" class="list-group-item">
-                                    <i class="fa fa-star fa-fw"></i> 环境与化学
+                                    <i class="fa fa-institution fa-fw"></i> 中国电子科技集团66所
                                     <span class="pull-right text-muted small"><em>33 次</em>
-                                    </span>
-                                </a>
-                                <a href="#" class="list-group-item">
-                                    <i class="fa fa-star fa-fw"></i> 统计学
-                                    <span class="pull-right text-muted small"><em>66 次</em>
-                                    </span>
-                                </a>
-                                <a href="#" class="list-group-item">
-                                    <i class="fa fa-star fa-fw"></i> 服务计算
-                                    <span class="pull-right text-muted small"><em>23 次</em>
                                     </span>
                                 </a>
                             </div>
@@ -754,37 +610,12 @@
                         </div>
                         <!-- /.panel-body -->
                     </div>
-                    <!-- /.panel -->
-                    <div class="panel panel-yellow">
-                        <div class="panel-heading">
-                            <i class="fa fa-bar-chart-o fa-fw"></i> 各机构所占比例
-                        </div>
-                        <div class="panel-body">
-                            <div id="papers-percent-institutions" style="width: 100%; height: 400px;"></div>
-                            <a href="#" class="btn btn-default btn-block">查看详情</a>
-                        </div>
-                        <!-- /.panel-body -->
-                    </div>
-                    <!-- /.panel -->
-
-                    <div class="panel panel-yellow">
-                        <div class="panel-heading">
-                            <i class="fa fa-bar-chart-o fa-fw"></i> 热门期刊占比
-                        </div>
-                        <div class="panel-body">
-                            <div id="hot-journal" style="width: 100%; height: 470px;"></div>
-                            <a href="#" class="btn btn-default btn-block">查看详情</a>
-                        </div>
-                        <!-- /.panel-body -->
-                    </div>
-
-                    <!-- /.panel .chat-panel -->
                 </div>
-                <!-- /.col-lg-4 -->
             </div>
             <!-- /.row -->
         </div>
         <!-- /#page-wrapper -->
+
     </div>
     <!-- /#wrapper -->
 
@@ -797,43 +628,311 @@
     <!-- Metis Menu Plugin JavaScript -->
     <script src="/vendor/metisMenu/metisMenu.min.js"></script>
 
-    <!-- echart的js和标签云的js -->
-    <script type="text/javascript" src="/js/echarts.js"></script>
-    <script type="text/javascript" src="/js/echarts-wordcloud.min.js"></script>
-
-    <!-- 词云 -->
-    <script type="text/javascript" src = "/js/index/wordsCloud.js">
-    </script>
-
-    <!-- 十大热门科研军工集团 -->
-    <script type="text/javascript" src = "/js/index/influentialInstitutions.js">
-    </script>
-
-    <!-- 十大权威专家 -->
-    <script type="text/javascript" src="/js/index/influentialExperts.js">
-    </script>
-
-    <!-- 各机构所占比例 -->
-    <script type="text/javascript" src="/js/index/pieGraphOfInstitutions.js">
-    </script>
-
-    <!-- 经常投的期刊名称 -->
-    <script type="text/javascript" src="/js/index/pirGraphOfJournals.js">
-    </script>
-
-    <!-- 检测窗口变化 -->
-    <script type="text/javascript">
-        window.onresize = function () {
-            loadWordsCloudData();
-            loadExpertsData();
-            loadInstitutionData();
-            loadPieGraphOfInstitutionData();
-            loadPieGraphOfJournalData();
-        }
-    </script>
-
     <!-- Custom Theme JavaScript -->
     <script src="/dist/js/sb-admin-2.js"></script>
+
+    <!-- echarts.js -->
+    <script src="/js/echarts.js"></script>
+    <script src="/js/echarts-wordcloud.min.js"></script>
+
+
+    <script type="text/javascript" id="professoroption">
+        var myChart = echarts.init(document.getElementById("person-ability"));
+        var professoroption = {
+            title: {
+                text: '专家能力雷达图'
+            },
+            tooltip: {},
+            radar: {
+                // shape: 'circle',
+                indicator: [
+                    { name: '论文数量', max: 6500},
+                    { name: '引用次数', max: 16000},
+                    { name: '研究深度', max: 30000},
+                    { name: '研究广度', max: 38000},
+                    { name: '合作圈子', max: 52000},
+                    { name: '研究影响力', max: 25000}
+                ]
+            },
+            series: [{
+                name: '专家能力度量',
+                type: 'radar',
+                // areaStyle: {normal: {}},
+                data : [
+                    {
+                        value : [4300, 10000, 28000, 35000, 50000, 19000],
+                        name : '专家能力'
+                    }
+                ]
+            }]
+        };
+        myChart.setOption(professoroption);
+    </script>
+
+    <script type="text/javascript" id="achievementoption">
+        var myChart = echarts.init(document.getElementById('publish-quote-times'));
+        var achievementoption = {
+            title: {
+                text: '研究成果汇总',
+                subtext: '按年份排列'
+            },
+            tooltip: {
+                trigger: 'axis'
+            },
+            legend: {
+                data:['发文量','被引用量']
+            },
+            toolbox: {
+                show: true,
+                feature: {
+                    dataZoom: {
+                        yAxisIndex: 'none'
+                    },
+                    dataView: {readOnly: false},
+                    magicType: {type: ['line', 'bar']},
+                    restore: {},
+                    saveAsImage: {}
+                }
+            },
+            xAxis:  {
+                type: 'category',
+                boundaryGap: false,
+                data: ['2006','2007','2008', '2009', '2010', '2011', '2012', '2013', '2014', '2015', '2016']
+            },
+            yAxis: {
+                type: 'value'
+            },
+            series: [
+                {
+                    name:'发文量',
+                    type:'line',
+                    data:[11, 11, 15, 13, 12, 13, 10, 6, 13, 7, 8],
+                    markPoint: {
+                        data: [
+                            {type: 'max', name: '最大值'},
+                            {type: 'min', name: '最小值'}
+                        ]
+                    }
+                },
+                {
+                    name:'被引用量',
+                    type:'line',
+                    data:[34, 13, 33, 24, 18, 31, 33, 17, 23, 15, 19],
+                    markPoint: {
+                        data: [
+                            {type: 'max', name: '最大值'},
+                            {type: 'min', name: '最小值'}
+                        ]
+                    }
+
+                }
+            ]
+        };
+        myChart.setOption(achievementoption);
+    </script>
+
+    <script type="text/javascript" id="keywordsoption">
+        var myChart = echarts.init(document.getElementById('hot-research-point'));
+        var keywordsoption = {
+            tooltip: {},
+            series: [ {
+                type: 'wordCloud',
+                gridSize: 2,
+                sizeRange: [12, 50],
+                rotationRange: [0, 0],
+                shape: 'circle',
+                width: 600,
+                height: 400,
+                textStyle: {
+                    normal: {
+                        color: function () {
+                            return 'rgb(' + [
+                                        Math.round(Math.random() * 160),
+                                        Math.round(Math.random() * 160),
+                                        Math.round(Math.random() * 160)
+                                    ].join(',') + ')';
+                        }
+                    },
+                    emphasis: {
+                        shadowBlur: 10,
+                        shadowColor: '#333'
+                    }
+                },
+                data: [
+                    {
+                        name: 'Sam S Club',
+                        value: 10000,
+                        textStyle: {
+                            normal: {
+                                color: 'black'
+                            },
+                            emphasis: {
+                                color: 'red'
+                            }
+                        }
+                    },
+                    {
+                        name: 'Macys',
+                        value: 6181
+                    },
+                    {
+                        name: 'Amy Schumer',
+                        value: 4386
+                    },
+                    {
+                        name: 'Jurassic World',
+                        value: 4055
+                    },
+                    {
+                        name: 'Charter Communications',
+                        value: 2467
+                    },
+                    {
+                        name: 'Chick Fil A',
+                        value: 2244
+                    },
+                    {
+                        name: 'Planet Fitness',
+                        value: 1898
+                    },
+                    {
+                        name: 'Pitch Perfect',
+                        value: 1484
+                    },
+                    {
+                        name: 'Express',
+                        value: 1112
+                    },
+                    {
+                        name: 'Home',
+                        value: 965
+                    },
+                    {
+                        name: 'Johnny Depp',
+                        value: 847
+                    },
+                    {
+                        name: 'Lena Dunham',
+                        value: 582
+                    },
+                    {
+                        name: 'Lewis Hamilton',
+                        value: 555
+                    },
+                    {
+                        name: 'KXAN',
+                        value: 550
+                    },
+                    {
+                        name: 'Mary Ellen Mark',
+                        value: 462
+                    },
+                    {
+                        name: 'Farrah Abraham',
+                        value: 366
+                    },
+                    {
+                        name: 'Rita Ora',
+                        value: 360
+                    },
+                    {
+                        name: 'Serena Williams',
+                        value: 282
+                    },
+                    {
+                        name: 'NCAA baseball tournament',
+                        value: 273
+                    },
+                    {
+                        name: 'Point Break',
+                        value: 265
+                    }
+                ]
+            } ]
+        };
+        myChart.setOption(keywordsoption);
+    </script>
+
+    <script type = "text/javascript">
+        var myChart = echarts.init(document.getElementById('author-relationship'));
+        myChart.showLoading();
+        var authorRelationshipOption;
+        $.get('webkit-dep.json', function (graph) {
+            myChart.hideLoading();
+            graph.nodes.forEach(function (node) {
+                console.info("value"+ "  " + node.value);
+                console.info("name" + " " + node.name);
+                console.info("category" + " " + node.category);
+                node.itemStyle = null;
+                node.value = node.value;
+                node.symbolSize = node.value*20;
+                node.label = {
+                    normal: {
+                        show: node.symbolSize > 30
+                    }
+                };
+                node.category = node.category;
+            });
+            authorRelationshipOption = {
+                title: {
+                    text: 'Les Miserables',
+                    subtext: 'Circular layout',
+                    top: 'bottom',
+                    left: 'right'
+                },
+                tooltip: {},
+                legend: {
+                    data: ['HTMLElement', 'WebGL', 'SVG','CSS','Other']
+                },
+                animationDurationUpdate: 1500,
+                animationEasingUpdate: 'quinticInOut',
+                series : [
+                    {
+                        name: 'Les Miserables',
+                        type: 'graph',
+                        layout: 'force',
+//                    circular: {
+//                        rotateLabel: true
+//                    },
+                        data: graph.nodes,
+                        links: graph.links,
+                        categories: graph.categories,
+                        roam: true,
+                        label: {
+                            normal: {
+                                position: 'inside',
+                                formatter: '{a}'
+                            }
+                        },
+                        lineStyle: {
+                            normal: {
+                                color: 'source',
+                                curveness: 0.3
+                            }
+                        },
+                        edgeSymbol: ['none', 'arrow'],
+                        force: {
+                            repulsion: 100
+                        }
+                    }
+                ]
+            };
+            myChart.setOption(authorRelationshipOption);
+        }, 'json');
+
+    </script>
+    <script type="text/javascript">
+        window.onresize = function () {
+            var myChart = echarts.init(document.getElementById("person-ability"));
+            myChart.setOption(professoroption);
+            var myChart = echarts.init(document.getElementById('publish-quote-times'));
+            myChart.setOption(achievementoption);
+            var myChart = echarts.init(document.getElementById('author-relationship'));
+            myChart.setOption(authorRelationshipOption);
+            var myChart = echarts.init(document.getElementById('hot-research-point'));
+            myChart.setOption(keywordsoption);
+        }
+    </script>
 
 </body>
 

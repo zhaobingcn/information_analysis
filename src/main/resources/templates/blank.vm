@@ -281,13 +281,13 @@
                             <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> 领域专家分析<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="flot.html">专家能力度量</a>
+                                    <a href="expertQuery.vm">专家能力度量</a>
                                 </li>
                                 <li>
-                                    <a href="morris.html">专家合作分析</a>
+                                    <a href="expertDetail.vm">专家合作分析</a>
                                 </li>
                                 <li>
-                                    <a href="professorRecommend.html">专家推荐</a>
+                                    <a href="expertRecommend.vm">专家推荐</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->

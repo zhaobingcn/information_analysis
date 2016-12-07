@@ -55,6 +55,6 @@ public class IndexController {
         model.put("papers", totalEntitys.get("papers"));
         model.put("authors", totalEntitys.get("authors"));
         model.put("keywords", totalEntitys.get("keywords"));
-        return "/index";
+        return "index";
     }
 }
