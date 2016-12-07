@@ -7,10 +7,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * Created by hexu on 2016/12/7.
  */
 @Controller
-public class eDetailController {
+public class ECooperateController {
 
-    @RequestMapping(value = "/expertDetail")
-    public String eDetail(){
-        return "expertDetail";
+    @RequestMapping(value = "/expertCooperate")
+    public String eCooperate(){
+        return "expertCooperate";
     }
 }
