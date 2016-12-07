@@ -291,13 +291,13 @@
                             <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> 领域专家分析<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="expertQuery.vm">专家能力度量</a>
+                                    <a href="queryOfExpert.vm">专家能力度量</a>
                                 </li>
                                 <li>
-                                    <a href="expertDetail.vm">专家合作分析</a>
+                                    <a href="detailOfExpert.vm">专家合作分析</a>
                                 </li>
                                 <li>
-                                    <a href="expertRecommend.vm">专家推荐</a>
+                                    <a href="recommendOfExpert.vm">专家推荐</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
@@ -445,7 +445,7 @@
                                                             <i class="fa fa-plus" id="add"></i>
                                                         </div>
                                                         <div class="col-lg-5 col-md-5">
-                                                            <a href="expertDetail.vm">
+                                                            <a href="detailOfExpert.vm">
                                                             <div>
                                                                 <span style="font-size: large">詹毅</span>
                                                             </div>
