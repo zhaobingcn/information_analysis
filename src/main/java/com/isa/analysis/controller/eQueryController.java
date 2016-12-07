@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class eQueryController {
 
-    @RequestMapping(value = "expertQuery")
+    @RequestMapping(value = "/expertQuery")
     public String expertQuery(){
         return "expertQuery";
     }

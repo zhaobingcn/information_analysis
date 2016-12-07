@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class eRecommendController {
 
-    @RequestMapping(value = "expertRecommend")
+    @RequestMapping(value = "/expertRecommend")
     public String expertRecommend(){
         return "expertRecommend";
     }
