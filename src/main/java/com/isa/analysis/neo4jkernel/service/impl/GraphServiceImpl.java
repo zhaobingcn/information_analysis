@@ -28,7 +28,6 @@ public class GraphServiceImpl implements GraphService {
     public Map<String, Object> graph(int limit) {
 
         StringBuilder queryString = new StringBuilder();
-        //TODO
         /**
          *   完整查询语句
              start institution = node(90,91,103,104,105)

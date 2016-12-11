@@ -20,9 +20,7 @@ public class ExpertDetailPageRepositoryImpl implements ExpertDetailPageRepositor
     @Override
     @Transactional
     public Map<String, Object> realtionShipGraph() {
-
-
-
+        StringBuilder query = new StringBuilder("match (n)");  //TODO 12.11
         return null;
     }
 }

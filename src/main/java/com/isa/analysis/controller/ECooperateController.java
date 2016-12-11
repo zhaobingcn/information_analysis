@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class ECooperateController {
 
-    @RequestMapping(value = "/expertCooperate")
+    @RequestMapping(value = "/cooperateOfExpert")
     public String eCooperate(){
-        return "expertCooperate";
+        return "cooperateOfExpert";
     }
 }

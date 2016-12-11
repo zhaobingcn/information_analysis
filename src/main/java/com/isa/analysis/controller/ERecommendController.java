@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class ERecommendController {
 
-    @RequestMapping(value = "/expertRecommend")
+    @RequestMapping(value = "/recommendOfExpert")
     public String expertRecommend(){
-        return "expertRecommend";
+        return "recommendOfExpert";
     }
 }

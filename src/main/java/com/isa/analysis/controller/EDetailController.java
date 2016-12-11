@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class EDetailController {
 
-    @RequestMapping(value = "/expertDetail")
+    @RequestMapping(value = "/detailOfExpert")
     public String eDetail(){
-        return "expertDetail";
+        return "detailOfExpert";
     }
 }
