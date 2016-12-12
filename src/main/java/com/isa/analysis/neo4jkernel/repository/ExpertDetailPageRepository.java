@@ -18,5 +18,5 @@ public interface ExpertDetailPageRepository {
      * 查询图中作者合作关系的子图
      * @return
      */
-    Map<String, Object> realtionShipGraph();
+    Map<String, Object> realtionShipGraph(String name, String institution, int depath);
 }

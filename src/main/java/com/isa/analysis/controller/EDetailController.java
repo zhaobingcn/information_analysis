@@ -13,4 +13,5 @@ public class EDetailController {
     public String eDetail(){
         return "detailOfExpert";
     }
+
 }
