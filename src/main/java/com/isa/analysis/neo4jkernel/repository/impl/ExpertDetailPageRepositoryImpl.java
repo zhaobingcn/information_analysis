@@ -25,7 +25,7 @@ public class ExpertDetailPageRepositoryImpl implements ExpertDetailPageRepositor
     @Transactional
     public List<Path> realtionShipGraph(String name, String institution, int depath) {
         String query = "match path = (a:Author{name:{name}, institution:{institution}}) " +
-                "-[:work_together*" + depath + "]-(b:Author) return path";  //TODO 12.11
+                "-[:work_together*" + depath + "]-(b:Author) return path";
         Map<String, Object> param = new HashMap<>();
         param.put("name", name);
         param.put("institution", institution);

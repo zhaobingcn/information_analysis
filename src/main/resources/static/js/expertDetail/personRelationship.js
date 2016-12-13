@@ -6,12 +6,9 @@ function loadRelationshipPersonal() {
     var myChart = echarts.init(document.getElementById('author-relationship'));
     myChart.showLoading();
     $.ajax({
-        url : "/detailOfExpert/cooperateOfAuthor",
+        url : "test.json",
         type: "get",
         dataType : "json",
-        data :{"name":"詹毅",
-                "institution":"电子科技集团36所",
-                "depath":1},
         success : function (graph) {
         myChart.hideLoading();
         graph.nodes.forEach(function (node) {
@@ -20,7 +17,7 @@ function loadRelationshipPersonal() {
             console.info("category" + " " + node.category);
             node.itemStyle = null;
             node.value = node.value;
-            node.symbolSize = node.value*5;
+            node.symbolSize = Math.sqrt(node.value)*10;
             node.label = {
                 normal: {
                     show: node.symbolSize > 5
@@ -42,20 +39,20 @@ function loadRelationshipPersonal() {
             animationEasingUpdate: 'quinticInOut',
             series : [
                 {
-                    name: '作者合作关系图',
+                    name: '专家',
                     type: 'graph',
                     layout: 'force',
-//                    circular: {
-//                        rotateLabel: true
-//                    },
+                   // circular: {
+                   //     rotateLabel: true
+                   // },
                     data: graph.nodes,
                     links: graph.links,
                     categories: graph.categories,
                     roam: true,
                     label: {
                         normal: {
-                            position: 'inside',
-                            formatter: '{a}'
+                            position: 'right',
+                            formatter: '{b}'
                         }
                     },
                     lineStyle: {
@@ -66,7 +63,8 @@ function loadRelationshipPersonal() {
                     },
                     edgeSymbol: ['none', 'arrow'],
                     force: {
-                        repulsion: 100
+                        repulsion: 100,
+                        edgeLength: 100
                     }
                 }
             ]

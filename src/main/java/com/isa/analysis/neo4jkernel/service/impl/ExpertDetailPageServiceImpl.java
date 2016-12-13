@@ -3,8 +3,6 @@ package com.isa.analysis.neo4jkernel.service.impl;
 import com.isa.analysis.neo4jkernel.formatservice.MapFormat;
 import com.isa.analysis.neo4jkernel.repository.ExpertDetailPageRepository;
 import com.isa.analysis.neo4jkernel.service.ExpertDetailPageService;
-import org.apache.commons.collections.map.HashedMap;
-import org.apache.commons.collections.map.LinkedMap;
 import org.neo4j.graphdb.Node;
 import org.neo4j.graphdb.Path;
 import org.neo4j.graphdb.Relationship;
@@ -33,7 +31,7 @@ public class ExpertDetailPageServiceImpl implements ExpertDetailPageService {
         List<Map<String, Object>> nodes = new ArrayList<>();
         List<Map<String, Object>> rels = new ArrayList<>();
         Map<Long, Integer> checkNodes = new HashMap<>();
-        Map<Long, Integer> checkRels = new HashMap<>();
+        HashSet<Long> checkRels = new HashSet<>();
         int nodeId = 0;
         for(Path path: paths){
             Iterable<Node> pathNodes = path.nodes();
@@ -43,7 +41,6 @@ public class ExpertDetailPageServiceImpl implements ExpertDetailPageService {
                 }else{
                     HashMap<String, Object> author = new HashMap<>();
                     author.put("name", node.getProperty("name"));
-//                    author.put("institution", node.getProperty("institution"));
                     author.put("value", node.getDegree());
                     author.put("category", 0);
                     checkNodes.put(node.getId(), nodeId);
@@ -53,9 +50,10 @@ public class ExpertDetailPageServiceImpl implements ExpertDetailPageService {
             }
             Iterable<Relationship> relationships= path.relationships();
             for(Relationship relationship: relationships){
-                if(checkRels.containsKey(relationship.getId())){
+                if(checkRels.contains(relationship.getId())){
                     continue;
                 }else{
+                    checkRels.add(relationship.getId());
                     int startNodeId, endNodeId;
                     if(checkNodes.containsKey(relationship.getStartNode().getId())){
                         startNodeId = checkNodes.get(relationship.getStartNode().getId());
@@ -71,7 +69,6 @@ public class ExpertDetailPageServiceImpl implements ExpertDetailPageService {
                     rel.put("source", startNodeId);
                     rel.put("target", endNodeId);
                     rel.put("value", relationship.getProperty("weight"));
-
                     rels.add(rel);
                 }
             }
