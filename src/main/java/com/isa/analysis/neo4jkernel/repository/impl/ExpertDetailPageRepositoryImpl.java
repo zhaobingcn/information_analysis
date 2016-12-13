@@ -1,5 +1,6 @@
 package com.isa.analysis.neo4jkernel.repository.impl;
 
+import com.isa.analysis.neo4jkernel.formatservice.MapFormat;
 import com.isa.analysis.neo4jkernel.repository.ExpertDetailPageRepository;
 import org.neo4j.graphdb.GraphDatabaseService;
 import org.neo4j.graphdb.Path;
@@ -24,8 +25,8 @@ public class ExpertDetailPageRepositoryImpl implements ExpertDetailPageRepositor
     @Transactional
     public List<Path> realtionShipGraph(String name, String institution, int depath) {
         String query = "match path = (a:Author{name:{name}, institution:{institution}}) " +
-                "-[:work_together*.." + depath + "]-(b:Author) return path";  //TODO 12.11
-        Map<String, Object> param = new HashMap();
+                "-[:work_together*" + depath + "]-(b:Author) return path";  //TODO 12.11
+        Map<String, Object> param = new HashMap<>();
         param.put("name", name);
         param.put("institution", institution);
         Result result = graphDatabaseService.execute(query, param);

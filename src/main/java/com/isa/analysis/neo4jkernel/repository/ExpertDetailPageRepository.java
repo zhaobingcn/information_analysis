@@ -17,7 +17,7 @@ public interface ExpertDetailPageRepository {
 
     /**
      * 查询图中作者合作关系的子图
-     * @return
+     * @return 返回子图所有路径
      */
     List<Path> realtionShipGraph(String name, String institution, int depath);
 
