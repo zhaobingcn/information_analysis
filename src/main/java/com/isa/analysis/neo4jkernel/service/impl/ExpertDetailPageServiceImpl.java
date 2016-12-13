@@ -43,7 +43,7 @@ public class ExpertDetailPageServiceImpl implements ExpertDetailPageService {
                 }else{
                     HashMap<String, Object> author = new HashMap<>();
                     author.put("name", node.getProperty("name"));
-                    author.put("institution", node.getProperty("institution"));
+//                    author.put("institution", node.getProperty("institution"));
                     author.put("value", node.getDegree());
                     author.put("category", 0);
                     checkNodes.put(node.getId(), nodeId);

@@ -11,7 +11,7 @@ function loadRelationshipPersonal() {
         dataType : "json",
         data :{"name":"詹毅",
                 "institution":"电子科技集团36所",
-                "depath":2},
+                "depath":1},
         success : function (graph) {
         myChart.hideLoading();
         graph.nodes.forEach(function (node) {

@@ -818,7 +818,7 @@
     </script>
 
     <!-- 经常投的期刊名称 -->
-    <script type="text/javascript" src="/js/index/pirGraphOfJournals.js">
+    <script type="text/javascript" src="/js/index/pieGraphOfJournals.js">
     </script>
 
     <!-- 检测窗口变化 -->
