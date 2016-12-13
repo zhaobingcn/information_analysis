@@ -22,6 +22,6 @@ public class ExpertDetailPageRepositoryImplTest {
 
     @Test
     public void testAuthorCooperate(){
-        expertDetailPageRepository.realtionShipGraph("詹毅", "电子科技集团36所", 2);
+        expertDetailPageRepository.realtionShipGraph("詹毅", "电子科技集团36所", 3);
     }
 }
