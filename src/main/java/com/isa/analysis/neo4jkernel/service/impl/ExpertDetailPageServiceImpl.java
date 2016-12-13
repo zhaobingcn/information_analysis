@@ -10,6 +10,7 @@ import org.neo4j.graphdb.Path;
 import org.neo4j.graphdb.Relationship;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.*;
 
@@ -26,6 +27,7 @@ public class ExpertDetailPageServiceImpl implements ExpertDetailPageService {
     private MapFormat mapFormat;
 
     @Override
+    @Transactional
     public Map<String, Object> getRelationshipGraph(String name, String institution, int depath) {
         List<Path> paths = expertDetailPageRepository.realtionShipGraph(name, institution, depath);
         List<Map<String, Object>> nodes = new ArrayList<>();
@@ -39,11 +41,13 @@ public class ExpertDetailPageServiceImpl implements ExpertDetailPageService {
                 if(checkNodes.containsKey(node.getId())){
                     continue;
                 }else{
-                    nodeId ++;
                     HashMap<String, Object> author = new HashMap<>();
                     author.put("name", node.getProperty("name"));
                     author.put("institution", node.getProperty("institution"));
+                    author.put("value", node.getDegree());
+                    author.put("category", 0);
                     checkNodes.put(node.getId(), nodeId);
+                    nodeId ++;
                     nodes.add(author);
                 }
             }
@@ -56,17 +60,18 @@ public class ExpertDetailPageServiceImpl implements ExpertDetailPageService {
                     if(checkNodes.containsKey(relationship.getStartNode().getId())){
                         startNodeId = checkNodes.get(relationship.getStartNode().getId());
                     }else{
-                        startNodeId = ++nodeId;
+                        startNodeId = nodeId ++;
                     }
                     if(checkNodes.containsKey(relationship.getEndNode().getId())){
                         endNodeId = checkNodes.get(relationship.getEndNode().getId());
                     }else{
-                        endNodeId = ++nodeId;
+                        endNodeId = nodeId ++;
                     }
                     HashMap<String, Object> rel = new HashMap<>();
                     rel.put("source", startNodeId);
                     rel.put("target", endNodeId);
                     rel.put("value", relationship.getProperty("weight"));
+
                     rels.add(rel);
                 }
             }

@@ -5,7 +5,14 @@
 function loadRelationshipPersonal() {
     var myChart = echarts.init(document.getElementById('author-relationship'));
     myChart.showLoading();
-    $.get('webkit-dep.json', function (graph) {
+    $.ajax({
+        url : "/detailOfExpert/cooperateOfAuthor",
+        type: "get",
+        dataType : "json",
+        data :{"name":"詹毅",
+                "institution":"电子科技集团36所",
+                "depath":2},
+        success : function (graph) {
         myChart.hideLoading();
         graph.nodes.forEach(function (node) {
             console.info("value"+ "  " + node.value);
@@ -13,30 +20,29 @@ function loadRelationshipPersonal() {
             console.info("category" + " " + node.category);
             node.itemStyle = null;
             node.value = node.value;
-            node.symbolSize = node.value*20;
+            node.symbolSize = node.value*5;
             node.label = {
                 normal: {
-                    show: node.symbolSize > 30
+                    show: node.symbolSize > 5
                 }
             };
             node.category = node.category;
         });
         option = {
             title: {
-                text: 'Les Miserables',
-                subtext: 'Circular layout',
+                text: '作者合作关系图',
                 top: 'bottom',
                 left: 'right'
             },
             tooltip: {},
             legend: {
-                data: ['HTMLElement', 'WebGL', 'SVG','CSS','Other']
+                data: ['专家']
             },
             animationDurationUpdate: 1500,
             animationEasingUpdate: 'quinticInOut',
             series : [
                 {
-                    name: 'Les Miserables',
+                    name: '作者合作关系图',
                     type: 'graph',
                     layout: 'force',
 //                    circular: {
@@ -66,7 +72,8 @@ function loadRelationshipPersonal() {
             ]
         };
         myChart.setOption(option);
-    }, 'json');
+    }
+    });
 }
 
 loadRelationshipPersonal();
