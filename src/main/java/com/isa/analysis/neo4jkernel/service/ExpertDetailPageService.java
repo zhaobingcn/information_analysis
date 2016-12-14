@@ -12,4 +12,10 @@ public interface ExpertDetailPageService {
      * @return json格式数据
      */
     Map<String, Object> getRelationshipGraph(String name, String institution, int depath);
+
+    /**
+     * 包装成echarts可以用的json格式数据
+     * @return json格式数据
+     */
+    Map<String, Object> getKeywordsDetails(String name, String institution);
 }

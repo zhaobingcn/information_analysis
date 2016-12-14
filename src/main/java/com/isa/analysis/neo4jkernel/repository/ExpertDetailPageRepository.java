@@ -16,12 +16,31 @@ import java.util.Map;
 public interface ExpertDetailPageRepository {
 
     /**
-     * 查询图中作者合作关系的子图
+     * 查询图中作者合作关系的子图,可以定义深度
      * @return 返回子图所有路径
      */
-    List<Path> realtionShipGraph(String name, String institution, int depath);
+    List<Path> realtionshipPaths(String name, String institution, int depath);
 
     /**
-     *
+     * 查询图中作者的论文信息
+     * @return
      */
+
+
+    /**
+     * 查询图中作者的合作信息
+     * @return
+     */
+
+    /**
+     * 查询图中作者的研究方向信息
+     * @return
+     */
+    Map<String, Object> getKeywordsByAuthor(String name, String institution);
+
+    /**
+     * 查询图中和作者相关的各种实体的数量
+     */
+    Map<String, Object> getEntityCountByAuthor(String name, String institution);
+
 }

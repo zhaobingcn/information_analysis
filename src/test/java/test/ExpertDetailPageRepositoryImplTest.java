@@ -26,7 +26,7 @@ public class ExpertDetailPageRepositoryImplTest {
     @Test
     @Transactional
     public void testAuthorCooperate(){
-        List<Path> paths  = expertDetailPageRepository.realtionShipGraph("詹毅", "电子科技集团36所", 3);
+        List<Path> paths  = expertDetailPageRepository.realtionshipPaths("詹毅", "电子科技集团36所", 3);
         for(Path path: paths){
             System.out.println(path);
         }

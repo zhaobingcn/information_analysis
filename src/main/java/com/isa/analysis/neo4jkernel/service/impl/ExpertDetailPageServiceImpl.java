@@ -27,7 +27,7 @@ public class ExpertDetailPageServiceImpl implements ExpertDetailPageService {
     @Override
     @Transactional
     public Map<String, Object> getRelationshipGraph(String name, String institution, int depath) {
-        List<Path> paths = expertDetailPageRepository.realtionShipGraph(name, institution, depath);
+        List<Path> paths = expertDetailPageRepository.realtionshipPaths(name, institution, depath);
         List<Map<String, Object>> nodes = new ArrayList<>();
         List<Map<String, Object>> rels = new ArrayList<>();
         Map<Long, Integer> checkNodes = new HashMap<>();
@@ -94,5 +94,17 @@ public class ExpertDetailPageServiceImpl implements ExpertDetailPageService {
             categories.add(mapFormat.map("name", categoryIndex+"层合作关系", "keyword", null, "base", "Author"));
         }
         return mapFormat.map("type", "force", "categories", categories, "nodes", nodes, "links", rels);
+    }
+
+    @Override
+    public Map<String, Object> getKeywordsDetails(String name, String institution) {
+        Map<String, Object> keywordsDetail = expertDetailPageRepository.getKeywordsByAuthor(name, institution);
+        List<Map<String, Object>> dataGroup = new ArrayList<>();
+        for(Map.Entry<String, Object> oneKeyword:keywordsDetail.entrySet()){
+            dataGroup.add(mapFormat.map("name", oneKeyword.getKey(), "value", oneKeyword.getValue()));
+        }
+        Map<String, Object> finalExpertInterestData = new HashMap<>();
+        finalExpertInterestData.put("data", dataGroup);
+        return finalExpertInterestData;
     }
 }

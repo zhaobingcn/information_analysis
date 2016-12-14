@@ -25,11 +25,19 @@ public class EDetailController {
     }
 
     @RequestMapping(value = "/detailOfExpert/cooperateOfAuthor")
-    public @ResponseBody Map<String, Object> getCooperateRelation(
+    public @ResponseBody Map<String, Object> cooperateRelation(
             @RequestParam(value = "name", required = false)String name,
             @RequestParam(value = "institution", required = false)String institution,
             @RequestParam(value = "depath", required = false)int depath
     ){
         return expertDetailPageService.getRelationshipGraph(name, institution, depath);
+    }
+
+    @RequestMapping(value = "/detailOfExpert/InterestOfExpert")
+    public  @ResponseBody Map<String, Object> interestOfExpert(
+            @RequestParam(value = "name", required = false)String name,
+            @RequestParam(value = "institution", required = false)String institution
+    ){
+        return expertDetailPageService.getKeywordsDetails(name, institution);
     }
 }
