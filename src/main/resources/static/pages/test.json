@@ -657,10 +657,31 @@
     "value" : 1,
     "target" : 0
   } ],
-  "categories" : [ {
-    "name" : "专家",
-    "keyword" : null,
-    "base" : "Author"
-  } ],
+  "categories": [
+    {
+      "name": "HTMLElement",
+      "keyword": {},
+      "base": "HTMLElement"
+    },
+    {
+      "name": "WebGL",
+      "keyword": {},
+      "base": "WebGLRenderingContext"
+    },
+    {
+      "name": "SVG",
+      "keyword": {},
+      "base": "SVGElement"
+    },
+    {
+      "name": "CSS",
+      "keyword": {},
+      "base": "CSSRule"
+    },
+    {
+      "name": "Other",
+      "keyword": {}
+    }
+  ],
   "type" : "force"
 }

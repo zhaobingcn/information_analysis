@@ -32,17 +32,21 @@ public class ExpertDetailPageServiceImpl implements ExpertDetailPageService {
         List<Map<String, Object>> rels = new ArrayList<>();
         Map<Long, Integer> checkNodes = new HashMap<>();
         HashSet<Long> checkRels = new HashSet<>();
+        int categoriesCount = depath+1;
         int nodeId = 0;
         for(Path path: paths){
             Iterable<Node> pathNodes = path.nodes();
+            int pathNodeIndex = 0;
             for(Node node: pathNodes){
                 if(checkNodes.containsKey(node.getId())){
+                    pathNodeIndex ++;
                     continue;
                 }else{
                     HashMap<String, Object> author = new HashMap<>();
                     author.put("name", node.getProperty("name"));
                     author.put("value", node.getDegree());
-                    author.put("category", 0);
+                    author.put("category", pathNodeIndex);
+                    pathNodeIndex ++;
                     checkNodes.put(node.getId(), nodeId);
                     nodeId ++;
                     nodes.add(author);
@@ -75,6 +79,9 @@ public class ExpertDetailPageServiceImpl implements ExpertDetailPageService {
         }
         List<Map<String, Object>> categories = new ArrayList<>();
         categories.add(mapFormat.map("name", "专家", "keyword", null, "base", "Author"));
+        for(int categoryIndex=1; categoryIndex<categoriesCount; categoryIndex++){
+            categories.add(mapFormat.map("name", categoryIndex+"层合作关系", "keyword", null, "base", "Author"));
+        }
         return mapFormat.map("type", "force", "categories", categories, "nodes", nodes, "links", rels);
     }
 }

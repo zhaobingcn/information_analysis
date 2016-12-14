@@ -6,18 +6,15 @@ function loadRelationshipPersonal() {
     var myChart = echarts.init(document.getElementById('author-relationship'));
     myChart.showLoading();
     $.ajax({
-        url : "test.json",
+        url : "/detailOfExpert/cooperateOfAuthor",
         type: "get",
         dataType : "json",
         success : function (graph) {
         myChart.hideLoading();
         graph.nodes.forEach(function (node) {
-            console.info("value"+ "  " + node.value);
-            console.info("name" + " " + node.name);
-            console.info("category" + " " + node.category);
             node.itemStyle = null;
             node.value = node.value;
-            node.symbolSize = Math.sqrt(node.value)*10;
+            node.symbolSize = Math.sqrt(node.value)*7;
             node.label = {
                 normal: {
                     show: node.symbolSize > 5
@@ -25,6 +22,11 @@ function loadRelationshipPersonal() {
             };
             node.category = node.category;
         });
+        var legendData = [];
+        var categoriesLength = graph.categories.length;
+        for(var i=0; i<categoriesLength; i++){
+            legendData[i] = graph.categories[i].name;
+        }
         option = {
             title: {
                 text: '作者合作关系图',
@@ -33,7 +35,7 @@ function loadRelationshipPersonal() {
             },
             tooltip: {},
             legend: {
-                data: ['专家']
+                data: legendData
             },
             animationDurationUpdate: 1500,
             animationEasingUpdate: 'quinticInOut',
@@ -45,20 +47,23 @@ function loadRelationshipPersonal() {
                    // circular: {
                    //     rotateLabel: true
                    // },
-                    data: graph.nodes,
+                    data: graph.nodes.map(function (node, idx) {
+                        node.id = idx;
+                        return node;
+                    }),
                     links: graph.links,
                     categories: graph.categories,
                     roam: true,
                     label: {
                         normal: {
-                            position: 'right',
+                            position: 'top',
                             formatter: '{b}'
                         }
                     },
                     lineStyle: {
                         normal: {
                             color: 'source',
-                            curveness: 0.3
+                            curveness: 0.4
                         }
                     },
                     edgeSymbol: ['none', 'arrow'],
