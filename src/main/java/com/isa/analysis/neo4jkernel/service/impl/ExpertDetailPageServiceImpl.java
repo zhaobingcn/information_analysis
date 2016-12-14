@@ -107,4 +107,17 @@ public class ExpertDetailPageServiceImpl implements ExpertDetailPageService {
         finalExpertInterestData.put("data", dataGroup);
         return finalExpertInterestData;
     }
+
+    @Override
+    public Map<String, Object> generateAuthorAbility(String name, String institution) {
+        int resarchWidth, coorpeateAuthors, quoteCount, papersCount, resarchInfluence;
+        double rearchDepath;
+        Map<String, Object> keywords = expertDetailPageRepository.getKeywordsByAuthor(name, institution);
+        resarchWidth = keywords.size();
+        int allKeywordsCount = 0;
+        keywords.forEach(
+                (keyword, count) -> {allKeywordsCount += count;}
+        );
+        return null;
+    }
 }

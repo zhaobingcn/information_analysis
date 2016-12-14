@@ -34,13 +34,13 @@ public interface ExpertDetailPageRepository {
 
     /**
      * 查询图中作者的研究方向信息
-     * @return
+     * @return 关键词详情
      */
     Map<String, Object> getKeywordsByAuthor(String name, String institution);
 
     /**
-     * 查询图中和作者相关的各种实体的数量
+     * 查询作者的所有论文及其引用次数
+     * @return 论文详情
      */
-    Map<String, Object> getEntityCountByAuthor(String name, String institution);
-
+    List<Map<String, Object>> getPapersByAuthor(String name, String institution);
 }

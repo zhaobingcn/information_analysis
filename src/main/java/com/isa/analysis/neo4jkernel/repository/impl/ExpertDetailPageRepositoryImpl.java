@@ -21,6 +21,9 @@ public class ExpertDetailPageRepositoryImpl implements ExpertDetailPageRepositor
     @Autowired
     private GraphDatabaseService graphDatabaseService;
 
+    @Autowired
+    private MapFormat mapFormat;
+
     @Override
     @Transactional
     public List<Path> realtionshipPaths(String name, String institution, int depath) {
@@ -40,6 +43,7 @@ public class ExpertDetailPageRepositoryImpl implements ExpertDetailPageRepositor
     }
 
     @Override
+    @Transactional
     public Map<String, Object> getKeywordsByAuthor(String name, String institution) {
         String query = "match (a:Author{name:{name}, institution:{institution}})" +
                 "-[:publish]->(p:Paper)-[i:involve]->(k:Keyword) return k.name as kname, count(i) as times";
@@ -56,8 +60,26 @@ public class ExpertDetailPageRepositoryImpl implements ExpertDetailPageRepositor
     }
 
     @Override
-    public Map<String, Object> getEntityCountByAuthor(String name, String institution) {
-        return null;
+    @Transactional
+    public List<Map<String, Object>> getPapersByAuthor(String name, String institution) {
+        String query = "match (a:Author{name:{name}, institution:{institution}})" +
+                "-[:publish]->(p:Paper) return p";
+        Map<String, Object> params = new HashMap<>();
+        params.put("name", name);
+        params.put("institution", institution);
+        Result result = graphDatabaseService.execute(query, params);
+        List<Map<String, Object>> allPapers = new ArrayList<>();
+        while (result.hasNext()){
+            Map<String, Object> row = new HashMap<>();
+            allPapers.add(
+                    mapFormat.map("title", row.get("title"),
+                            "link", row.get("link"),
+                            "quote", row.get("quote"),
+                            "date", row.get("date").toString().substring(0, 3)
+                            )
+            );
+        }
+        return allPapers;
     }
 
 

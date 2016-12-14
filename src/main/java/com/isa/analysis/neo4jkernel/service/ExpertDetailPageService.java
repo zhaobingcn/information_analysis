@@ -18,4 +18,10 @@ public interface ExpertDetailPageService {
      * @return json格式数据
      */
     Map<String, Object> getKeywordsDetails(String name, String institution);
+
+    /**
+     * 生成专家能力雷达图
+     * @return 五个能力指标
+     */
+    Map<String, Object> generateAuthorAbility(String name, String institution);
 }
