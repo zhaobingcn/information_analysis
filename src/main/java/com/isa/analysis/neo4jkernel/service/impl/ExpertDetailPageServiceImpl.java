@@ -34,16 +34,27 @@ public class ExpertDetailPageServiceImpl implements ExpertDetailPageService {
         HashSet<Long> checkRels = new HashSet<>();
         int categoriesCount = depath+1;
         int nodeId = 0;
+        /**
+         * 遍历每一条作者合作路径
+         */
         for(Path path: paths){
             Iterable<Node> pathNodes = path.nodes();
             int pathNodeIndex = 0;
             for(Node node: pathNodes){
                 if(checkNodes.containsKey(node.getId())){
+                    /**
+                     *如果路径中该节点与起点的直接距离更小，那么用更小的距离代替原距离
+                     */
+                    if(pathNodeIndex < Long.parseLong(nodes.get(checkNodes.get(node.getId())).get("category").toString())){
+                        Map<String, Object> author = nodes.get(checkNodes.get(node.getId()));
+                        author.replace("category", pathNodeIndex);
+                    }
                     pathNodeIndex ++;
                     continue;
                 }else{
                     HashMap<String, Object> author = new HashMap<>();
                     author.put("name", node.getProperty("name"));
+                    author.put("institution", node.getProperty("institution"));
                     author.put("value", node.getDegree());
                     author.put("category", pathNodeIndex);
                     pathNodeIndex ++;

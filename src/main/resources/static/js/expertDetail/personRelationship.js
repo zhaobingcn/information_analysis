@@ -9,6 +9,11 @@ function loadRelationshipPersonal() {
         url : "/detailOfExpert/cooperateOfAuthor",
         type: "get",
         dataType : "json",
+        data:{
+            "name" : "詹毅",
+            "institution" : "电子科技集团36所",
+            "depath" : 4
+        },
         success : function (graph) {
         myChart.hideLoading();
         graph.nodes.forEach(function (node) {

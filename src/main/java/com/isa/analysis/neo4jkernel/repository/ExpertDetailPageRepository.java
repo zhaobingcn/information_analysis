@@ -21,4 +21,7 @@ public interface ExpertDetailPageRepository {
      */
     List<Path> realtionShipGraph(String name, String institution, int depath);
 
+    /**
+     *
+     */
 }

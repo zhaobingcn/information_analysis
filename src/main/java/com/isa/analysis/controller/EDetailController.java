@@ -25,7 +25,11 @@ public class EDetailController {
     }
 
     @RequestMapping(value = "/detailOfExpert/cooperateOfAuthor")
-    public @ResponseBody Map<String, Object> getCooperateRelation(){
-        return expertDetailPageService.getRelationshipGraph("詹毅", "电子科技集团36所", 2);
+    public @ResponseBody Map<String, Object> getCooperateRelation(
+            @RequestParam(value = "name", required = false)String name,
+            @RequestParam(value = "institution", required = false)String institution,
+            @RequestParam(value = "depath", required = false)int depath
+    ){
+        return expertDetailPageService.getRelationshipGraph(name, institution, depath);
     }
 }
