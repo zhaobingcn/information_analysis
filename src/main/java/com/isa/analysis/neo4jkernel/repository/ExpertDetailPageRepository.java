@@ -44,5 +44,16 @@ public interface ExpertDetailPageRepository {
      */
     List<Map<String, Object>> getPapersByAuthor(String name, String institution);
 
+    /**
+     * 查询一个作者的论文数量
+     * @param name
+     * @param institution
+     * @return
+     */
     int getPapersCountByAuthor(String name, String institution);
+
+    /**
+     * 查询和一个作者紧密合作的作者，按照合作次数排序
+     */
+    List<Map<String, Object>> getcooperateAuthorsByAuthor(String name, String institution);
 }

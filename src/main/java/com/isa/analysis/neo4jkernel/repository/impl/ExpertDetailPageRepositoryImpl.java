@@ -97,4 +97,22 @@ public class ExpertDetailPageRepositoryImpl implements ExpertDetailPageRepositor
         int pcount = Integer.parseInt(pcountCollect.get("pcount").toString());
         return  pcount;
     }
+
+    @Override
+    @Transactional
+    public List<Map<String, Object>> getcooperateAuthorsByAuthor(String name, String institution) {
+        String query = "match (a:Author{name:{name}, institution:{institution}})-[w:work_together]-(b:Author) return b, w.weight as score order " +
+                "by score desc limit 6";
+        Map<String, Object> params = new HashMap<>();
+        params.put("name", name);
+        params.put("institution", institution);
+        Result result = graphDatabaseService.execute(query, params);
+        while(result.hasNext()){
+            Map<String, Object> row = result.next();
+            Node author = (Node)row.get("b");
+            int times = Integer.parseInt(row.get("score").toString());
+
+        }
+        return null;
+    }
 }

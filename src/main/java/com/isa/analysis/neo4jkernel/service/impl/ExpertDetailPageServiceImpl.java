@@ -1,6 +1,7 @@
 package com.isa.analysis.neo4jkernel.service.impl;
 
 import com.isa.analysis.neo4jkernel.formatservice.MapFormat;
+import com.isa.analysis.neo4jkernel.generic.RelationshipTypes;
 import com.isa.analysis.neo4jkernel.repository.ExpertDetailPageRepository;
 import com.isa.analysis.neo4jkernel.service.ExpertDetailPageService;
 import org.apache.commons.collections.map.HashedMap;
@@ -168,16 +169,23 @@ public class ExpertDetailPageServiceImpl implements ExpertDetailPageService {
 
     @Override
     public List<Map<String, Object>> generateAuthorsPapers(String name, String institution) {
-        return null;
+        List<Map<String, Object>> authorPapers = expertDetailPageRepository.getPapersByAuthor(name, institution);
+        return authorPapers;
     }
 
     @Override
     public List<Map<String, Object>> generateAuthorsCoorpeate(String name, String institution) {
+        List<Path> paths = expertDetailPageRepository.realtionshipPaths(name, institution, 1);
+        for(Path path: paths){
+            Node self = path.startNode();
+
+        }
         return null;
     }
 
     @Override
     public List<Map<String, Object>> generateAuthorsCooperateInstitution(String name, String institution) {
+
         return null;
     }
 
