@@ -4,35 +4,46 @@
 
 function loadAbilityPersonal() {
     var myChart = echarts.init(document.getElementById("person-ability"));
-    var option = {
-        title: {
-            text: '专家能力雷达图'
+    $.ajax({
+        url: "/detailOfExpert/abilityOfExpert",
+        type: "get",
+        dataType: "json",
+        data:{
+            "name": "詹毅",
+            "institution": "电子科技集团36所"
         },
-        tooltip: {},
-        radar: {
-            // shape: 'circle',
-            indicator: [
-                { name: '论文数量', max: 30},
-                { name: '引用次数', max: 400},
-                { name: '研究深度', max: 2},
-                { name: '研究广度', max: 50},
-                { name: '合作圈子', max: 200},
-                { name: '研究影响力', max: 200}
-            ]
-        },
-        series: [{
-            name: '专家能力度量',
-            type: 'radar',
-            // areaStyle: {normal: {}},
-            data : [
-                {
-                    value : [25, 300, 1.235, 33, 123, 89],
-                    name : '专家能力'
-                }
-            ]
-        }]
-    };
-    myChart.setOption(option);
+        success: function (abilityData) {
+            var option = {
+                title: {
+                    text: '专家能力雷达图'
+                },
+                tooltip: {},
+                radar: {
+                    // shape: 'circle',
+                    indicator: [
+                        { name: '论文数量', max: 30},
+                        { name: '引用次数', max: 200},
+                        { name: '研究深度', max: 2},
+                        { name: '研究广度', max: 50},
+                        { name: '合作圈子', max: 200},
+                        { name: '研究影响力', max: 200}
+                    ]
+                },
+                series: [{
+                    name: '专家能力度量',
+                    type: 'radar',
+                    // areaStyle: {normal: {}},
+                    data : [
+                        {
+                            value : abilityData.data,
+                            name : '专家能力'
+                        }
+                    ]
+                }]
+            };
+            myChart.setOption(option);
+        }
+    })
 }
 
 loadAbilityPersonal();

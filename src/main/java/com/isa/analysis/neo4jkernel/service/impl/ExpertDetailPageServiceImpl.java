@@ -3,6 +3,7 @@ package com.isa.analysis.neo4jkernel.service.impl;
 import com.isa.analysis.neo4jkernel.formatservice.MapFormat;
 import com.isa.analysis.neo4jkernel.repository.ExpertDetailPageRepository;
 import com.isa.analysis.neo4jkernel.service.ExpertDetailPageService;
+import org.apache.commons.collections.map.HashedMap;
 import org.neo4j.graphdb.Node;
 import org.neo4j.graphdb.Path;
 import org.neo4j.graphdb.Relationship;
@@ -128,9 +129,10 @@ public class ExpertDetailPageServiceImpl implements ExpertDetailPageService {
         }
         List<Path> paths = expertDetailPageRepository.realtionshipPaths(name, institution, 1);
         for(Path path: paths){
+            Node self = path.startNode();
             Iterable<Relationship> relationships = path.relationships();
             for(Relationship relationship: relationships){
-                Node author = relationship.getEndNode();
+                Node author = relationship.getOtherNode(self);
                 coorpeateAuthors += author.getDegree();
             }
         }
@@ -145,13 +147,39 @@ public class ExpertDetailPageServiceImpl implements ExpertDetailPageService {
         for(Map<String, Object> paper: papers){
             quoteCount += Integer.parseInt(paper.get("quote").toString());
         }
-        if(quoteCount > 400){
-            quoteCount = 400;
+        if(quoteCount > 200){
+            quoteCount = 200;
         }
         resarchInfluence = quoteCount + papersCount * 10;
         if(resarchInfluence > 200){
             resarchInfluence = 200;
         }
+        Map<String, Object> abilityData = new HashMap<>();
+        List<Object> data = new ArrayList<>();
+        data.add(papersCount);
+        data.add(quoteCount);
+        data.add(rearchDepath);
+        data.add(resarchWidth);
+        data.add(coorpeateAuthors);
+        data.add(resarchInfluence);
+        abilityData.put("data", data);
+        return abilityData;
+    }
+
+    @Override
+    public List<Map<String, Object>> generateAuthorsPapers(String name, String institution) {
         return null;
     }
+
+    @Override
+    public List<Map<String, Object>> generateAuthorsCoorpeate(String name, String institution) {
+        return null;
+    }
+
+    @Override
+    public List<Map<String, Object>> generateAuthorsCooperateInstitution(String name, String institution) {
+        return null;
+    }
+
+
 }

@@ -40,4 +40,12 @@ public class EDetailController {
     ){
         return expertDetailPageService.getKeywordsDetails(name, institution);
     }
+
+    @RequestMapping(value = "/detailOfExpert/abilityOfExpert")
+    public @ResponseBody Map<String, Object> abilityOfExpert(
+            @RequestParam(value = "name", required = false)String name,
+            @RequestParam(value = "institution", required = false)String institution
+    ){
+        return expertDetailPageService.generateAuthorAbility(name, institution);
+    }
 }

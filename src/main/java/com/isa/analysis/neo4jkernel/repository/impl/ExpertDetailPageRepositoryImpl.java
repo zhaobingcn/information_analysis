@@ -3,6 +3,7 @@ package com.isa.analysis.neo4jkernel.repository.impl;
 import com.isa.analysis.neo4jkernel.formatservice.MapFormat;
 import com.isa.analysis.neo4jkernel.repository.ExpertDetailPageRepository;
 import org.neo4j.graphdb.GraphDatabaseService;
+import org.neo4j.graphdb.Node;
 import org.neo4j.graphdb.Path;
 import org.neo4j.graphdb.Result;
 import org.neo4j.helpers.collection.MapUtil;
@@ -70,12 +71,12 @@ public class ExpertDetailPageRepositoryImpl implements ExpertDetailPageRepositor
         Result result = graphDatabaseService.execute(query, params);
         List<Map<String, Object>> allPapers = new ArrayList<>();
         while (result.hasNext()){
-            Map<String, Object> row = new HashMap<>();
+            Node row = (Node)result.next().get("p");
             allPapers.add(
-                    mapFormat.map("title", row.get("title"),
-                            "link", row.get("link"),
-                            "quote", row.get("quote"),
-                            "date", row.get("date").toString().substring(0, 3)
+                    mapFormat.map("title", row.getProperty("title"),
+                            "link", row.getProperty("link"),
+                            "quote", row.getProperty("quote"),
+                            "date", row.getProperty("date").toString().substring(0, 3)
                             )
             );
         }
@@ -96,4 +97,6 @@ public class ExpertDetailPageRepositoryImpl implements ExpertDetailPageRepositor
         int pcount = Integer.parseInt(pcountCollect.get("pcount").toString());
         return  pcount;
     }
+
+
 }
