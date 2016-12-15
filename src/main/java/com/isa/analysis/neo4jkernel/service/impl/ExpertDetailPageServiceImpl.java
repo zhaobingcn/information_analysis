@@ -109,15 +109,49 @@ public class ExpertDetailPageServiceImpl implements ExpertDetailPageService {
     }
 
     @Override
+    @Transactional
     public Map<String, Object> generateAuthorAbility(String name, String institution) {
-        int resarchWidth, coorpeateAuthors, quoteCount, papersCount, resarchInfluence;
+        int resarchWidth, coorpeateAuthors=0, quoteCount=0, papersCount, resarchInfluence;
         double rearchDepath;
         Map<String, Object> keywords = expertDetailPageRepository.getKeywordsByAuthor(name, institution);
         resarchWidth = keywords.size();
+        if(resarchWidth > 50){
+            resarchWidth = 50;
+        }
         int allKeywordsCount = 0;
-        keywords.forEach(
-                (keyword, count) -> {allKeywordsCount += count;}
-        );
+        for(Map.Entry<String, Object> keyword: keywords.entrySet()){
+            allKeywordsCount += Integer.parseInt(keyword.getValue().toString());
+        }
+        rearchDepath = (double)allKeywordsCount/resarchWidth;
+        if(rearchDepath > 2.0){
+            rearchDepath = 2.0;
+        }
+        List<Path> paths = expertDetailPageRepository.realtionshipPaths(name, institution, 1);
+        for(Path path: paths){
+            Iterable<Relationship> relationships = path.relationships();
+            for(Relationship relationship: relationships){
+                Node author = relationship.getEndNode();
+                coorpeateAuthors += author.getDegree();
+            }
+        }
+        if(coorpeateAuthors > 200){
+            coorpeateAuthors = 200;
+        }
+        List<Map<String, Object>> papers = expertDetailPageRepository.getPapersByAuthor(name, institution);
+        papersCount = papers.size();
+        if(papersCount > 30){
+            papersCount = 30;
+        }
+        for(Map<String, Object> paper: papers){
+            quoteCount += Integer.parseInt(paper.get("quote").toString());
+        }
+        if(quoteCount > 400){
+            quoteCount = 400;
+        }
+        resarchInfluence = quoteCount + papersCount * 10;
+        if(resarchInfluence > 200){
+            resarchInfluence = 200;
+        }
         return null;
     }
 }

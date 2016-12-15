@@ -43,4 +43,6 @@ public interface ExpertDetailPageRepository {
      * @return 论文详情
      */
     List<Map<String, Object>> getPapersByAuthor(String name, String institution);
+
+    int getPapersCountByAuthor(String name, String institution);
 }

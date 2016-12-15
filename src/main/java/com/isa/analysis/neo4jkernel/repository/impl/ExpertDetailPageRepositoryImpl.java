@@ -82,5 +82,18 @@ public class ExpertDetailPageRepositoryImpl implements ExpertDetailPageRepositor
         return allPapers;
     }
 
+    @Override
+    @Transactional
+    public int getPapersCountByAuthor(String name, String institution){
 
+        String query = "match (a:Author{name:{name}, institution:{institution}})" +
+                "-[:publish]->(p:Paper) return count(p) as pcount";
+        Map<String, Object> params = new HashMap<>();
+        params.put("name", name);
+        params.put("institution", institution);
+        Result result = graphDatabaseService.execute(query, params);
+        Map<String, Object> pcountCollect = result.next();
+        int pcount = Integer.parseInt(pcountCollect.get("pcount").toString());
+        return  pcount;
+    }
 }
