@@ -97,6 +97,4 @@ public class ExpertDetailPageRepositoryImpl implements ExpertDetailPageRepositor
         int pcount = Integer.parseInt(pcountCollect.get("pcount").toString());
         return  pcount;
     }
-
-
 }
