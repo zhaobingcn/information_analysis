@@ -4,7 +4,6 @@ import com.isa.analysis.neo4jkernel.formatservice.MapFormat;
 import com.isa.analysis.neo4jkernel.generic.RelationshipTypes;
 import com.isa.analysis.neo4jkernel.repository.ExpertDetailPageRepository;
 import com.isa.analysis.neo4jkernel.service.ExpertDetailPageService;
-import org.apache.commons.collections.map.HashedMap;
 import org.neo4j.graphdb.Node;
 import org.neo4j.graphdb.Path;
 import org.neo4j.graphdb.Relationship;

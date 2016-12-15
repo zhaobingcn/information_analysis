@@ -446,7 +446,7 @@
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
-                            <div class="list-group">
+                            <div class="list-group" id="paper-list-div">
                                 <a href="http://d.wanfangdata.com.cn/Periodical/dndxxb201401014" class="list-group-item">
                                     <i class="fa fa-star fa-fw"></i> 基于FPGA的Turbo码译码算法实现
                                     <span class="pull-right text-muted small">引用量：<em>40 次</em>
@@ -487,14 +487,16 @@
                                     <span class="pull-right text-muted small">引用量：<em>66 次</em>
                                     </span>
                                 </a>
-                                <a href="#" class="list-group-item">
-                                    <i class="fa fa-star fa-fw"></i> 雷达辐射源信号模糊函数主脊切面特征提取方法
-                                    <span class="pull-right text-muted small">引用量：<em>23 次</em>
-                                    </span>
-                                </a>
                             </div>
                             <!-- /.list-group -->
-                            <a href="#" class="btn btn-default btn-block">下一页</a>
+                            <div class="form-group">
+                                <div class="col-lg-6">
+                                    <button type="button" class="btn btn-outline btn-default btn-block">上一页</button>
+                                </div>
+                                <div class="col-lg-6">
+                                    <button type="button" class="btn btn-outline btn-default btn-block">下一页</button>
+                                </div>
+                            </div>
                         </div>
                         <!-- /.panel-body -->
                     </div>
