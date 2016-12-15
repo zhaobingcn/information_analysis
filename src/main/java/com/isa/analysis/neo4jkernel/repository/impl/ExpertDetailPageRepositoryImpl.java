@@ -102,17 +102,40 @@ public class ExpertDetailPageRepositoryImpl implements ExpertDetailPageRepositor
     @Transactional
     public List<Map<String, Object>> getcooperateAuthorsByAuthor(String name, String institution) {
         String query = "match (a:Author{name:{name}, institution:{institution}})-[w:work_together]-(b:Author) return b, w.weight as score order " +
-                "by score desc limit 6";
+                "by score desc limit 8";
         Map<String, Object> params = new HashMap<>();
         params.put("name", name);
         params.put("institution", institution);
         Result result = graphDatabaseService.execute(query, params);
+        List<Map<String, Object>> authors = new ArrayList<>();
         while(result.hasNext()){
             Map<String, Object> row = result.next();
             Node author = (Node)row.get("b");
             int times = Integer.parseInt(row.get("score").toString());
-
+            authors.add(
+                    mapFormat.map("name", author.getProperty("name"),
+                                  "institution", author.getProperty("institution"),
+                                  "times", times)
+            );
         }
-        return null;
+        return authors;
     }
+
+    @Override
+    public Map<String, Object> getCooperateInstitutionByAuthor(String name, String institution) {
+        String query = "match (a:Author{name:{name}, institution:{institution}})-[w:work_together]-(b:Author)-[r:works_in]->(i:Institution)" +
+                " return i.name as iname, count(r) as times order by times desc limit 8";
+        Map<String, Object> params = new HashMap<>();
+        params.put("name", name);
+        params.put("institution", institution);
+        Result result = graphDatabaseService.execute(query, params);
+        Map<String, Object> institutions = new HashMap<>();
+        while(result.hasNext()){
+            Map<String, Object> row = result.next();
+            institutions.put(row.get("iname").toString(), row.get("times"));
+        }
+        return institutions;
+    }
+
+
 }

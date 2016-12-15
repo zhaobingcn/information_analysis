@@ -4,6 +4,7 @@ import com.isa.analysis.neo4jkernel.service.ExpertDetailPageService;
 import org.neo4j.cypher.internal.frontend.v2_3.ast.functions.Str;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -20,7 +21,8 @@ public class EDetailController {
     private ExpertDetailPageService expertDetailPageService;
 
     @RequestMapping(value = "/detailOfExpert")
-    public String eDetail(){
+    public String eDetail(Model model) {
+
         return "detailOfExpert";
     }
 

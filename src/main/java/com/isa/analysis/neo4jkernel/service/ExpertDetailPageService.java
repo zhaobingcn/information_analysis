@@ -42,6 +42,5 @@ public interface ExpertDetailPageService {
     /**
      * 作者合作过的机构列表
      */
-    List<Map<String, Object>> generateAuthorsCooperateInstitution(String name, String institution);
-
+    Map<String, Object> generateAuthorsCooperateInstitution(String name, String institution);
 }

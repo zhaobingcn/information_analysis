@@ -175,19 +175,11 @@ public class ExpertDetailPageServiceImpl implements ExpertDetailPageService {
 
     @Override
     public List<Map<String, Object>> generateAuthorsCoorpeate(String name, String institution) {
-        List<Path> paths = expertDetailPageRepository.realtionshipPaths(name, institution, 1);
-        for(Path path: paths){
-            Node self = path.startNode();
-
-        }
-        return null;
+        return expertDetailPageRepository.getcooperateAuthorsByAuthor(name, institution);
     }
 
     @Override
-    public List<Map<String, Object>> generateAuthorsCooperateInstitution(String name, String institution) {
-
-        return null;
+    public Map<String, Object> generateAuthorsCooperateInstitution(String name, String institution) {
+        return expertDetailPageRepository.getCooperateInstitutionByAuthor(name, institution);
     }
-
-
 }

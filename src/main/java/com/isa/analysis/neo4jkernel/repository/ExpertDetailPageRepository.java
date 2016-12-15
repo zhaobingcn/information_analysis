@@ -56,4 +56,9 @@ public interface ExpertDetailPageRepository {
      * 查询和一个作者紧密合作的作者，按照合作次数排序
      */
     List<Map<String, Object>> getcooperateAuthorsByAuthor(String name, String institution);
+
+    /**
+     * 查询和一个作者紧密合作的作者的所属机构，按合作次数排序
+     */
+    Map<String, Object> getCooperateInstitutionByAuthor(String name, String institution);
 }
