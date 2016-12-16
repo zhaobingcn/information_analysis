@@ -491,10 +491,10 @@
                             <!-- /.list-group -->
                             <div class="form-group">
                                 <div class="col-lg-6">
-                                    <button type="button" class="btn btn-outline btn-default btn-block">上一页</button>
+                                    <button type="button" id="page-button-one" class="btn btn-outline btn-default btn-block">上一页</button>
                                 </div>
                                 <div class="col-lg-6">
-                                    <button type="button" class="btn btn-outline btn-default btn-block">下一页</button>
+                                    <button type="button" id="page-button-two" class="btn btn-outline btn-default btn-block">下一页</button>
                                 </div>
                             </div>
                         </div>

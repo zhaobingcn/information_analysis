@@ -32,7 +32,7 @@ public interface ExpertDetailPageService {
     /**
      * 作者发过的论文详情
      */
-    List<Map<String, Object>> generateAuthorsPapers(String name, String institution);
+    List<Map<String, Object>> generateAuthorsPapers(String name, String institution, int skip, int limit);
 
     /**
      * 作者合作过的专家列表

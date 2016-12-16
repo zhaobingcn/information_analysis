@@ -122,6 +122,7 @@ public class ExpertDetailPageRepositoryImpl implements ExpertDetailPageRepositor
     }
 
     @Override
+    @Transactional
     public Map<String, Object> getCooperateInstitutionByAuthor(String name, String institution) {
         String query = "match (a:Author{name:{name}, institution:{institution}})-[w:work_together]-(b:Author)-[r:works_in]->(i:Institution)" +
                 " return i.name as iname, count(r) as times order by times desc limit 8";
@@ -137,5 +138,27 @@ public class ExpertDetailPageRepositoryImpl implements ExpertDetailPageRepositor
         return institutions;
     }
 
-
+    @Override
+    @Transactional
+    public List<Map<String, Object>> getPapersByAuthorWithPages(String name, String institution, int skip, int limit) {
+        String query = "match (a:Author{name:{name}, institution:{institution}})-[:publish]-(p:Paper)" +
+                "return p order by p.date desc skip {skip} limit {limit}";
+        Map<String, Object> params = new HashMap<>();
+        params.put("name", name);
+        params.put("institution", institution);
+        params.put("skip", skip);
+        params.put("limit", limit);
+        Result result = graphDatabaseService.execute(query, params);
+        List<Map<String, Object>> limitPapers = new ArrayList<>();
+        while (result.hasNext()){
+            Node row = (Node)result.next().get("p");
+            limitPapers.add(
+                    mapFormat.map("title", row.getProperty("title"),
+                            "link", row.getProperty("link"),
+                            "quote", row.getProperty("quote")
+                    )
+            );
+        }
+        return limitPapers;
+    }
 }

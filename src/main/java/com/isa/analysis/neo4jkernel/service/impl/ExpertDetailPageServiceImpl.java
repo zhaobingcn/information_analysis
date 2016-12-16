@@ -167,7 +167,7 @@ public class ExpertDetailPageServiceImpl implements ExpertDetailPageService {
     }
 
     @Override
-    public List<Map<String, Object>> generateAuthorsPapers(String name, String institution) {
+    public List<Map<String, Object>> generateAuthorsPapers(String name, String institution, int skip, int limit) {
         List<Map<String, Object>> authorPapers = expertDetailPageRepository.getPapersByAuthor(name, institution);
         return authorPapers;
     }

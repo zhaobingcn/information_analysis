@@ -29,27 +29,7 @@ public class IndexPageRepositoryImpl implements IndexPageRepository {
     @Transactional
     public long totalEntitysScopeAll(String entityName) {
 
-        String cypher = "";
-        switch (entityName){
-            case "Institution":
-                cypher = "match (n:Institution) return count(*) as count";
-                break;
-            case "Keyword":
-                cypher = "match (n:Keyword) return count(*) as count";
-                break;
-            case "Paper":
-                cypher = "match (n:Paper) return count(*) as count";
-                break;
-            case "Journal":
-                cypher = "match (n:Journal) return count(*) as count";
-                break;
-            case "Author":
-                cypher = "match (n:Author) return count(*) as count";
-                break;
-            default:
-                break;
-        }
-
+        String cypher = "match (n:" + entityName + ") return count(*) as count";
         Result result = graphDatabaseService.execute(cypher);
         Map<String, Object> countMap = result.next();
         return Long.parseLong(countMap.get("count").toString());

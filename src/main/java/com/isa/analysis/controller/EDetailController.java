@@ -26,6 +26,16 @@ public class EDetailController {
         return "detailOfExpert";
     }
 
+    @RequestMapping(value = "/detailOfExpert/papersWithPages")
+    public @ResponseBody Map<String, Object> papersWithPages(
+            @RequestParam(value = "name", required = false)String name,
+            @RequestParam(value = "institution", required = false)String institution,
+            @RequestParam(value = "skip", required = false)int skip,
+            @RequestParam(value = "limit", required = false)int limit
+    ){
+        return
+    }
+
     @RequestMapping(value = "/detailOfExpert/cooperateOfAuthor")
     public @ResponseBody Map<String, Object> cooperateRelation(
             @RequestParam(value = "name", required = false)String name,
@@ -36,7 +46,7 @@ public class EDetailController {
     }
 
     @RequestMapping(value = "/detailOfExpert/InterestOfExpert")
-    public  @ResponseBody Map<String, Object> interestOfExpert(
+    public @ResponseBody Map<String, Object> interestOfExpert(
             @RequestParam(value = "name", required = false)String name,
             @RequestParam(value = "institution", required = false)String institution
     ){

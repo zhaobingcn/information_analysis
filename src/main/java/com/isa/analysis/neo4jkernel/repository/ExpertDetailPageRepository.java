@@ -22,17 +22,6 @@ public interface ExpertDetailPageRepository {
     List<Path> realtionshipPaths(String name, String institution, int depath);
 
     /**
-     * 查询图中作者的论文信息
-     * @return
-     */
-
-
-    /**
-     * 查询图中作者的合作信息
-     * @return
-     */
-
-    /**
      * 查询图中作者的研究方向信息
      * @return 关键词详情
      */
@@ -61,4 +50,10 @@ public interface ExpertDetailPageRepository {
      * 查询和一个作者紧密合作的作者的所属机构，按合作次数排序
      */
     Map<String, Object> getCooperateInstitutionByAuthor(String name, String institution);
+
+    /**
+     * 查询一个作者发的论文，有分页
+     *
+     */
+    List<Map<String, Object>> getPapersByAuthorWithPages(String name, String institution, int skip, int limit);
 }
