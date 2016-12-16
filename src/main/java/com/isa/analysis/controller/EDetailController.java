@@ -22,7 +22,6 @@ public class EDetailController {
 
     @RequestMapping(value = "/detailOfExpert")
     public String eDetail(Model model) {
-
         return "detailOfExpert";
     }
 
