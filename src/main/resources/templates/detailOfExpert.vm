@@ -491,7 +491,7 @@
                             <!-- /.list-group -->
                             <div class="form-group">
                                 <div class="col-lg-6">
-                                    <button type="button" id="page-button-one" class="btn btn-outline btn-default btn-block">上一页</button>
+                                    <button type="button" id="page-button-one" class="btn btn-outline btn-default btn-block">首页</button>
                                 </div>
                                 <div class="col-lg-6">
                                     <button type="button" id="page-button-two" class="btn btn-outline btn-default btn-block">下一页</button>
@@ -531,32 +531,32 @@
                             <div class="list-group">
                                 <a href="#" class="list-group-item">
                                     <i class="fa fa-user fa-fw"></i> 赵知劲
-                                    <span class="pull-right text-muted">中国电子科技集团33所
+                                    <span class="pull-right text-muted">中国电子科技集团36所
                                     </span>
                                 </a>
                                 <a href="#" class="list-group-item">
-                                    <i class="fa fa-user fa-fw"></i> 墨倾池
-                                    <span class="pull-right text-muted ">中国电子科技集团33所
+                                    <i class="fa fa-user fa-fw"></i> 吴金沂
+                                    <span class="pull-right text-muted ">杭州电子科技大学通信工程学院
                                     </span>
                                 </a>
                                 <a href="#" class="list-group-item">
-                                    <i class="fa fa-user fa-fw"></i> 剑非道
-                                    <span class="pull-right text-muted ">中国电子科技集团33所
+                                    <i class="fa fa-user fa-fw"></i> 杨小牛
+                                    <span class="pull-right text-muted ">中国电子科技集团36所
                                     </span>
                                 </a>
                                 <a href="#" class="list-group-item">
-                                    <i class="fa fa-user fa-fw"></i> 红尘雪
-                                    <span class="pull-right text-muted ">中国电子科技集团33所
+                                    <i class="fa fa-user fa-fw"></i> 司锡才
+                                    <span class="pull-right text-muted ">中国电子科技集团36所
                                     </span>
                                 </a>
                                 <a href="#" class="list-group-item">
-                                    <i class="fa fa-user fa-fw"></i> 天罗子
-                                    <span class="pull-right text-muted ">中国电子科技集团33所
+                                    <i class="fa fa-user fa-fw"></i> 陆满君
+                                    <span class="pull-right text-muted ">哈尔滨工程大学信息与通信工程学院
                                     </span>
                                 </a>
                                 <a href="#" class="list-group-item">
-                                    <i class="fa fa-user fa-fw"></i> 无梦生
-                                    <span class="pull-right text-muted ">中国电子科技集团33所
+                                    <i class="fa fa-user fa-fw"></i> 周冲
+                                    <span class="pull-right text-muted ">杭州电子科技大学
                                     </span>
                                 </a>
                             </div>
@@ -646,6 +646,8 @@
     <script type="text/javascript" src = "../js/expertDetail/personalInterest.js"></script>
     <!-- 专家合作关系图 -->
     <script type="text/javascript" src = "../js/expertDetail/personRelationship.js"></script>
+
+    <script type="text/javascript" src = "../js/expertDetail/papersWithPages.js"></script>
 
     <script type="text/javascript">
         window.onresize = function () {

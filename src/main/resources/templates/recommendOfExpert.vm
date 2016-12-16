@@ -534,7 +534,7 @@
                                         <tbody>
                                         <tr class="info">
                                             <td>1</td>
-                                            <td>墨倾池</td>
+                                            <td>赵知劲</td>
                                             <td>中国电子科技集团26所</td>
                                             <td>34</td>
                                             <td>
@@ -549,7 +549,7 @@
                                         </tr>
                                         <tr class="warning">
                                             <td>2</td>
-                                            <td>叹稀奇</td>
+                                            <td>沈雷</td>
                                             <td>中核工业集团</td>
                                             <td>34</td>
                                             <td>
@@ -564,7 +564,7 @@
                                         </tr>
                                         <tr class="success">
                                             <td>3</td>
-                                            <td>剑非道</td>
+                                            <td>胡俊</td>
                                             <td>中航工业集团</td>
                                             <td>
                                                 35
@@ -581,7 +581,7 @@
                                         </tr>
                                         <tr class="info">
                                             <td>4</td>
-                                            <td>墨倾池</td>
+                                            <td>张红旗</td>
                                             <td>中国电子科技集团26所</td>
                                             <td>34</td>
                                             <td>
@@ -596,7 +596,7 @@
                                         </tr>
                                         <tr class="warning">
                                             <td>5</td>
-                                            <td>叹稀奇</td>
+                                            <td>郭磊</td>
                                             <td>中核工业集团</td>
                                             <td>34</td>
                                             <td>
@@ -611,7 +611,7 @@
                                         </tr>
                                         <tr class="success">
                                             <td>6</td>
-                                            <td>剑非道</td>
+                                            <td>张静</td>
                                             <td>中航工业集团</td>
                                             <td>55</td>
                                             <td>
@@ -626,7 +626,7 @@
                                         </tr>
                                         <tr class="info">
                                             <td>7</td>
-                                            <td>墨倾池</td>
+                                            <td>庞国明</td>
                                             <td>中国电子科技集团26所</td>
                                             <td>34</td>
                                             <td>
@@ -641,7 +641,7 @@
                                         </tr>
                                         <tr class="warning">
                                             <td>8</td>
-                                            <td>叹稀奇</td>
+                                            <td>张织</td>
                                             <td>中核工业集团</td>
                                             <td>34</td>
                                             <td>
@@ -656,7 +656,7 @@
                                         </tr>
                                         <tr class="success">
                                             <td>9</td>
-                                            <td>剑非道</td>
+                                            <td>夏丹</td>
                                             <td>中航工业集团</td>
                                             <td>55</td>
                                             <td>
@@ -734,7 +734,7 @@
         },
         yAxis: [{
             type: 'category',
-            data: ['墨倾池', '叹稀奇', '剑非道', '墨倾池', '叹稀奇', '剑非道', '墨倾池', '叹稀奇', '剑非道'],
+            data: ["赵知劲", "沈雷", "胡俊", "张红旗", "郭磊", "张静", "庞国明", "张织", "夏丹"],
             axisTick: {
                 alignWithLabel: true
             }

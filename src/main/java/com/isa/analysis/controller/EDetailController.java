@@ -33,7 +33,7 @@ public class EDetailController {
             @RequestParam(value = "skip", required = false)int skip,
             @RequestParam(value = "limit", required = false)int limit
     ){
-        return
+        return expertDetailPageService.generateAuthorsPapers(name, institution, skip, limit);
     }
 
     @RequestMapping(value = "/detailOfExpert/cooperateOfAuthor")
