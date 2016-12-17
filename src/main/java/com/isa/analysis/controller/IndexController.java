@@ -47,7 +47,7 @@ public class IndexController {
         return indexPageService.influentialEntitys(entityName, limit);
     }
 
-    @RequestMapping("/index")
+    @RequestMapping(value = "/index")
     public String index(Map<String, Long> model, HttpSession session){
         session.setAttribute("name", "赵炳");
         Map<String, Long> totalEntitys = indexPageService.totalEntitys();

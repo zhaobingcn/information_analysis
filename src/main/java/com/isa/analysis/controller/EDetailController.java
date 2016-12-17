@@ -9,6 +9,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -21,7 +24,13 @@ public class EDetailController {
     private ExpertDetailPageService expertDetailPageService;
 
     @RequestMapping(value = "/detailOfExpert")
-    public String eDetail(Model model) {
+    public String eDetail(Model model,
+                          @RequestParam(name = "name", required = false, defaultValue = "詹毅")String name,
+                          @RequestParam(name = "institution", required = false, defaultValue = "电子科技集团36所")String institution,
+                          @RequestParam(name = "skip", required = false, defaultValue = "0")int skip,
+                          @RequestParam(name = "limit", required = false, defaultValue = "8")int limit) {
+        List<Map<String, Object>> papersInFirstPage = expertDetailPageService.generateAuthorsPapers(name, institution, skip, limit);
+
         return "detailOfExpert";
     }
 
