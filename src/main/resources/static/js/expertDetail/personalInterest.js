@@ -5,13 +5,15 @@
 function loadInterestPersonal() {
     var $loadWindow = document.getElementById('hot-research-point');
     var myChart = echarts.init($loadWindow);
+    var authorName = $("#authorsName").text();
+    var authorInstitution = $("#authorsInstitution").val();
     $.ajax({
         url : "/detailOfExpert/InterestOfExpert",
         type : "get",
         dataType : "json",
         data : {
-            "name" : "詹毅",
-            "institution" : "电子科技集团36所"
+            "name" : authorName,
+            "institution" : authorInstitution
         },
         success : function (finalData) {
             var option = {

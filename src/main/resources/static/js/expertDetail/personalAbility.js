@@ -4,13 +4,15 @@
 
 function loadAbilityPersonal() {
     var myChart = echarts.init(document.getElementById("person-ability"));
+    var authorName = $("#authorsName").text();
+    var authorInstitution = $("#authorsInstitution").val();
     $.ajax({
         url: "/detailOfExpert/abilityOfExpert",
         type: "get",
         dataType: "json",
         data:{
-            "name": "詹毅",
-            "institution": "电子科技集团36所"
+            "name": authorName,
+            "institution": authorInstitution
         },
         success: function (abilityData) {
             var option = {

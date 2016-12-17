@@ -43,4 +43,9 @@ public interface ExpertDetailPageService {
      * 作者合作过的机构列表
      */
     Map<String, Object> generateAuthorsCooperateInstitution(String name, String institution);
+
+    /**
+     * 作者的论文数量
+     */
+    int generateAuthorsPapersCount(String name, String institution);
 }

@@ -31,4 +31,10 @@ public class ExpertDetailPageRepositoryImplTest {
             System.out.println(path);
         }
     }
+
+    @Test
+    public void testPapersCount(){
+        int a = expertDetailPageRepository.getPapersCountByAuthor("詹毅", "电子科技集团36所");
+        System.out.println(a);
+    }
 }

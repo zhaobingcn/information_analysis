@@ -2,17 +2,19 @@
  * Created by hexu on 2016/12/7.
  */
 
-function loadRelationshipPersonal() {
+function loadRelationshipPersonal(depath) {
     var myChart = echarts.init(document.getElementById('author-relationship'));
     myChart.showLoading();
+    var authorName = $("#authorsName").text();
+    var authorInstitution = $("#authorsInstitution").val();
     $.ajax({
         url : "/detailOfExpert/cooperateOfAuthor",
         type: "get",
         dataType : "json",
         data:{
-            "name" : "詹毅",
-            "institution" : "电子科技集团36所",
-            "depath" : 4
+            "name" : authorName,
+            "institution" : authorInstitution,
+            "depath" : depath
         },
         success : function (graph) {
         myChart.hideLoading();
@@ -84,4 +86,4 @@ function loadRelationshipPersonal() {
     });
 }
 
-loadRelationshipPersonal();
+loadRelationshipPersonal(3);

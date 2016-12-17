@@ -36,10 +36,12 @@ public class EDetailController {
         model.addAttribute("authorsPapersList", authorsPapersList);
         model.addAttribute("cooperateAuthorsList",cooperateAuthorsList);
         model.addAttribute("cooperateInstitutionsList", cooperateInstitutionsList);
-
+        int authorsPapersCount = expertDetailPageService.generateAuthorsPapersCount(name, institution);
         Map<String, Object> authorsDetail = new HashMap<>();
         authorsDetail.put("name", name);
         authorsDetail.put("institution", institution);
+        authorsDetail.put("authorsPapersCount", authorsPapersCount);
+
         model.addAttribute("authorsDetail", authorsDetail);
 
         return "detailOfExpert";

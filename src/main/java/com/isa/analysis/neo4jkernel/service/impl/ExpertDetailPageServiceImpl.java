@@ -181,4 +181,10 @@ public class ExpertDetailPageServiceImpl implements ExpertDetailPageService {
     public Map<String, Object> generateAuthorsCooperateInstitution(String name, String institution) {
         return expertDetailPageRepository.getCooperateInstitutionByAuthor(name, institution);
     }
+
+    @Override
+    public int generateAuthorsPapersCount(String name, String institution) {
+        return expertDetailPageRepository.getPapersCountByAuthor(name, institution);
+    }
+
 }

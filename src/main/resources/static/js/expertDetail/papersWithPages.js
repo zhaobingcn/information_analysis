@@ -4,21 +4,26 @@
 var thePageSize = 8;
 var theCurrentPage = 1;
 // var allPagesCount = Number('<%=request.getParameter("allPagesCount")%>');
+// var allPagesCount = 3;
+var authorName = $("#authorsName").text();
+var authorInstitution = $("#authorsInstitution").val();
+var authorPapersCount = Number($("#authorsPapersCount").val());
+var allPagesCount = parseInt(authorPapersCount / thePageSize);
+var mod = authorPapersCount % thePageSize;
+if(mod > 0){
+    allPagesCount = allPagesCount + 1;
+}
 
-var institution = $("#authors").text().val();
-alert(institution);
-
-var allPagesCount = 4;
 document.getElementById("page-button-one").onclick = function () {
     if(theCurrentPage > 1){
-        loadPreviousPage(thePageSize, theCurrentPage);
+        loadPreviousPage(thePageSize, theCurrentPage, authorName, authorInstitution);
     }
     setButtonValue();
 }
 
 document.getElementById("page-button-two").onclick = function () {
     if(theCurrentPage < allPagesCount){
-        loadNextPage(thePageSize, theCurrentPage);
+        loadNextPage(thePageSize, theCurrentPage, authorName, authorInstitution);
     }
     setButtonValue();
 }
@@ -36,7 +41,7 @@ function setButtonValue() {
     }
 }
 
-function loadPreviousPage(pageSize, currentPage) {
+function loadPreviousPage(pageSize, currentPage, name, institution) {
     var skip = (currentPage-2) * pageSize;
     var limit = pageSize;
     theCurrentPage = theCurrentPage -1;
@@ -45,8 +50,8 @@ function loadPreviousPage(pageSize, currentPage) {
        type: "get",
        dataType: "json",
        data: {
-           "name" : "袁俊",
-           "institution" : "中国航空工业第1集团公司",
+           "name" : name,
+           "institution" : institution,
            "skip": skip,
            "limit": limit
        },
@@ -67,7 +72,7 @@ function loadPreviousPage(pageSize, currentPage) {
     });
 }
 
-function loadNextPage(pageSize, currentPage) {
+function loadNextPage(pageSize, currentPage, name, institution) {
     var skip = currentPage * pageSize;
     var limit = pageSize;
     theCurrentPage = theCurrentPage +1;
@@ -76,8 +81,8 @@ function loadNextPage(pageSize, currentPage) {
         type: "get",
         dataType: "json",
         data: {
-            "name" : "袁俊",
-            "institution" : "中国航空工业第1集团公司",
+            "name" : name,
+            "institution" : institution,
             "skip": skip,
             "limit": limit
         },
