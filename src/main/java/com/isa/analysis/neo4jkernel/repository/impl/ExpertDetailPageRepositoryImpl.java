@@ -130,7 +130,7 @@ public class ExpertDetailPageRepositoryImpl implements ExpertDetailPageRepositor
         params.put("name", name);
         params.put("institution", institution);
         Result result = graphDatabaseService.execute(query, params);
-        Map<String, Object> institutions = new HashMap<>();
+        Map<String, Object> institutions = new LinkedHashMap<>();
         while(result.hasNext()){
             Map<String, Object> row = result.next();
             institutions.put(row.get("iname").toString(), row.get("times"));

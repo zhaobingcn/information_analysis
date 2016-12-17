@@ -4,6 +4,10 @@
 var thePageSize = 8;
 var theCurrentPage = 1;
 // var allPagesCount = Number('<%=request.getParameter("allPagesCount")%>');
+
+var institution = $("#authors").text().val();
+alert(institution);
+
 var allPagesCount = 4;
 document.getElementById("page-button-one").onclick = function () {
     if(theCurrentPage > 1){

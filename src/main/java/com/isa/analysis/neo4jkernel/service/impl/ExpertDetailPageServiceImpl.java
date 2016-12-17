@@ -167,11 +167,9 @@ public class ExpertDetailPageServiceImpl implements ExpertDetailPageService {
     }
 
     @Override
-    public Map<String, Object> generateAuthorsPapers(String name, String institution, int skip, int limit) {
+    public List<Map<String, Object>> generateAuthorsPapers(String name, String institution, int skip, int limit) {
         List<Map<String, Object>> authorPapers = expertDetailPageRepository.getPapersByAuthorWithPages(name, institution, skip, limit);
-        Map<String, Object> finalPapersData = new HashMap<>();
-        finalPapersData.put("data", authorPapers);
-        return finalPapersData;
+        return authorPapers;
     }
 
     @Override

@@ -399,7 +399,8 @@
                         <div class="panel-body">
                             <div class="col-lg-3 col-xs-3">
                                 <i class="fa fa-user fa-5x"></i>
-                                <div class="huge">詹毅</div>
+                                <div class="huge">$authorsDetail.name</div>
+                                <input type="hidden" value=$authorsDetail.institution id="authorsInstitution">
                             </div>
                             <div class="col-lg-9 col-xs-9">
                                 <div>
@@ -447,46 +448,13 @@
                         <!-- /.panel-heading -->
                         <div class="panel-body">
                             <div class="list-group" id="paper-list-div">
-                                <a href="http://d.wanfangdata.com.cn/Periodical/dndxxb201401014" class="list-group-item">
-                                    <i class="fa fa-star fa-fw"></i> 基于FPGA的Turbo码译码算法实现
-                                    <span class="pull-right text-muted small">引用量：<em>40 次</em>
+                                #foreach($paper in $authorsPapersList)
+                                    <a href=$paper.link class="list-group-item">
+                                        <i class="fa fa-star fa-fw"></i> $paper.title
+                                        <span class="pull-right text-muted small">引用量：<em>$paper.quote 次</em>
                                     </span>
-                                </a>
-                                <a href="#" class="list-group-item">
-                                    <i class="fa fa-star fa-fw"></i> 一种基于伪随机动态补偿的12位250 MS／s流水线ADC
-                                    <span class="pull-right text-muted small">引用量：<em>12 次</em>
-                                    </span>
-                                </a>
-                                <a href="#" class="list-group-item">
-                                    <i class="fa fa-star fa-fw"></i> 基于随机有限元方法的机械结构可靠性评估
-                                    <span class="pull-right text-muted small">引用量：<em>25 次</em>
-                                    </span>
-                                </a>
-                                <a href="#" class="list-group-item">
-                                    <i class="fa fa-star fa-fw"></i> 多站无源跟踪系统容错算法F
-                                    <span class="pull-right text-muted small">引用量：<em>70 次</em>
-                                    </span>
-                                </a>
-                                <a href="#" class="list-group-item">
-                                    <i class="fa fa-star fa-fw"></i> 雷达辐射源信号脉内特征分析
-                                    <span class="pull-right text-muted small">引用量：<em>82 次</em>
-                                    </span>
-                                </a>
-                                <a href="#" class="list-group-item">
-                                    <i class="fa fa-star fa-fw"></i> 宽带码分多址信号的戈尔德序列盲识别
-                                    <span class="pull-right text-muted small">引用量：<em>65 次</em>
-                                    </span>
-                                </a>
-                                <a href="#" class="list-group-item">
-                                    <i class="fa fa-star fa-fw"></i> 非周期长码直扩信号的伪随机码盲估计
-                                    <span class="pull-right text-muted small">引用量：<em>33 次</em>
-                                    </span>
-                                </a>
-                                <a href="#" class="list-group-item">
-                                    <i class="fa fa-star fa-fw"></i> 基于Chirplet原子的雷达辐射源信号特征提取
-                                    <span class="pull-right text-muted small">引用量：<em>66 次</em>
-                                    </span>
-                                </a>
+                                    </a>
+                                #end
                             </div>
                             <!-- /.list-group -->
                             <div class="form-group">
@@ -529,36 +497,13 @@
                         <!-- /.panel-heading -->
                         <div class="panel-body">
                             <div class="list-group">
-                                <a href="#" class="list-group-item">
-                                    <i class="fa fa-user fa-fw"></i> 赵知劲
-                                    <span class="pull-right text-muted">中国电子科技集团36所
+                                #foreach($author in $cooperateAuthorsList)
+                                    <a href="#" class="list-group-item">
+                                        <i class="fa fa-user fa-fw"></i> $author.name
+                                        <span class="pull-right text-muted">$author.institution
                                     </span>
-                                </a>
-                                <a href="#" class="list-group-item">
-                                    <i class="fa fa-user fa-fw"></i> 吴金沂
-                                    <span class="pull-right text-muted ">杭州电子科技大学通信工程学院
-                                    </span>
-                                </a>
-                                <a href="#" class="list-group-item">
-                                    <i class="fa fa-user fa-fw"></i> 杨小牛
-                                    <span class="pull-right text-muted ">中国电子科技集团36所
-                                    </span>
-                                </a>
-                                <a href="#" class="list-group-item">
-                                    <i class="fa fa-user fa-fw"></i> 司锡才
-                                    <span class="pull-right text-muted ">中国电子科技集团36所
-                                    </span>
-                                </a>
-                                <a href="#" class="list-group-item">
-                                    <i class="fa fa-user fa-fw"></i> 陆满君
-                                    <span class="pull-right text-muted ">哈尔滨工程大学信息与通信工程学院
-                                    </span>
-                                </a>
-                                <a href="#" class="list-group-item">
-                                    <i class="fa fa-user fa-fw"></i> 周冲
-                                    <span class="pull-right text-muted ">杭州电子科技大学
-                                    </span>
-                                </a>
+                                    </a>
+                                #end
                             </div>
                             <!-- /.list-group -->
                         </div>
@@ -571,41 +516,13 @@
                         <!-- /.panel-heading -->
                         <div class="panel-body">
                             <div class="list-group">
-                                <a href="#" class="list-group-item">
-                                    <i class="fa fa-institution fa-fw"></i> 中国电子科技集团28所
-                                    <span class="pull-right text-muted small"><em>40 次</em>
+                                #foreach($institution in $cooperateInstitutionsList.entrySet())
+                                    <a href="#" class="list-group-item">
+                                        <i class="fa fa-institution fa-fw"></i> $institution.key
+                                        <span class="pull-right text-muted small"><em>$institution.value 次</em>
                                     </span>
-                                </a>
-                                <a href="#" class="list-group-item">
-                                    <i class="fa fa-institution fa-fw"></i> 中国电子科技集团38所
-                                    <span class="pull-right text-muted small"><em>12 次</em>
-                                    </span>
-                                </a>
-                                <a href="#" class="list-group-item">
-                                    <i class="fa fa-institution fa-fw"></i> 中国电子科技集团55所
-                                    <span class="pull-right text-muted small"><em>25 次</em>
-                                    </span>
-                                </a>
-                                <a href="#" class="list-group-item">
-                                    <i class="fa fa-institution fa-fw"></i> 中国电子科技集团17所
-                                    <span class="pull-right text-muted small"><em>70 次</em>
-                                    </span>
-                                </a>
-                                <a href="#" class="list-group-item">
-                                    <i class="fa fa-institution fa-fw"></i> 中国电子科技集团66所
-                                    <span class="pull-right text-muted small"><em>82 次</em>
-                                    </span>
-                                </a>
-                                <a href="#" class="list-group-item">
-                                    <i class="fa fa-institution fa-fw"></i> 中国电子科技集团12所
-                                    <span class="pull-right text-muted small"><em>65 次</em>
-                                    </span>
-                                </a>
-                                <a href="#" class="list-group-item">
-                                    <i class="fa fa-institution fa-fw"></i> 中国电子科技集团66所
-                                    <span class="pull-right text-muted small"><em>33 次</em>
-                                    </span>
-                                </a>
+                                    </a>
+                                #end
                             </div>
                             <!-- /.list-group -->
                             <a href="#" class="btn btn-default btn-block">查看详情</a>

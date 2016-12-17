@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -26,10 +27,20 @@ public class EDetailController {
     @RequestMapping(value = "/detailOfExpert")
     public String eDetail(Model model,
                           @RequestParam(name = "name", required = false, defaultValue = "詹毅")String name,
-                          @RequestParam(name = "institution", required = false, defaultValue = "电子科技集团36所")String institution,
-                          @RequestParam(name = "skip", required = false, defaultValue = "0")int skip,
-                          @RequestParam(name = "limit", required = false, defaultValue = "8")int limit) {
-        List<Map<String, Object>> papersInFirstPage = expertDetailPageService.generateAuthorsPapers(name, institution, skip, limit);
+                          @RequestParam(name = "institution", required = false, defaultValue = "电子科技集团36所")String institution
+    ){
+        int skip=0, limit=8;
+        List<Map<String, Object>> authorsPapersList = expertDetailPageService.generateAuthorsPapers(name, institution, skip, limit);
+        List<Map<String, Object>> cooperateAuthorsList = expertDetailPageService.generateAuthorsCoorpeate(name, institution);
+        Map<String, Object> cooperateInstitutionsList = expertDetailPageService.generateAuthorsCooperateInstitution(name, institution);
+        model.addAttribute("authorsPapersList", authorsPapersList);
+        model.addAttribute("cooperateAuthorsList",cooperateAuthorsList);
+        model.addAttribute("cooperateInstitutionsList", cooperateInstitutionsList);
+
+        Map<String, Object> authorsDetail = new HashMap<>();
+        authorsDetail.put("name", name);
+        authorsDetail.put("institution", institution);
+        model.addAttribute("authorsDetail", authorsDetail);
 
         return "detailOfExpert";
     }
@@ -41,7 +52,10 @@ public class EDetailController {
             @RequestParam(value = "skip", required = false)int skip,
             @RequestParam(value = "limit", required = false)int limit
     ){
-        return expertDetailPageService.generateAuthorsPapers(name, institution, skip, limit);
+        List<Map<String, Object>> authorsPapersList = expertDetailPageService.generateAuthorsPapers(name, institution, skip, limit);
+        Map<String, Object> finalPapersData = new HashMap<>();
+        finalPapersData.put("data", authorsPapersList);
+        return  finalPapersData;
     }
 
     @RequestMapping(value = "/detailOfExpert/cooperateOfAuthor")
