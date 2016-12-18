@@ -1,5 +1,6 @@
 package com.isa.analysis.neo4jkernel.service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -30,9 +31,17 @@ public interface ExpertDetailPageService {
     Map<String, Object> generateAuthorAbility(String name, String institution);
 
     /**
-     * 作者发过的论文详情
+     * 作者发过的论文详情,带有分页功能
      */
-    List<Map<String, Object>> generateAuthorsPapers(String name, String institution, int skip, int limit);
+    List<Map<String, Object>> generateAuthorsPapersPages(String name, String institution, int skip, int limit);
+
+    /**
+     * 作者发过的论文，不带分页功能
+     * @param name
+     * @param institution
+     * @return
+     */
+    List<Map<String, Object>> generateAuthorsPapers(String name, String institution);
 
     /**
      * 作者合作过的专家列表
@@ -48,4 +57,9 @@ public interface ExpertDetailPageService {
      * 作者的论文数量
      */
     int generateAuthorsPapersCount(String name, String institution);
+
+    /**
+     * 作者发表的论文，按照年份排序，2006-2016
+     */
+    Map<Integer, ArrayList<Integer>> generateAuthorsAchievement(String name, String institution);
 }

@@ -76,7 +76,7 @@ public class ExpertDetailPageRepositoryImpl implements ExpertDetailPageRepositor
                     mapFormat.map("title", row.getProperty("title"),
                             "link", row.getProperty("link"),
                             "quote", row.getProperty("quote"),
-                            "date", row.getProperty("date").toString().substring(0, 3)
+                            "date", row.getProperty("date").toString().substring(0, 4)
                             )
             );
         }
@@ -161,4 +161,5 @@ public class ExpertDetailPageRepositoryImpl implements ExpertDetailPageRepositor
         }
         return limitPapers;
     }
+
 }

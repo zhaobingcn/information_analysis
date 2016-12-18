@@ -56,4 +56,12 @@ public interface ExpertDetailPageRepository {
      *
      */
     List<Map<String, Object>> getPapersByAuthorWithPages(String name, String institution, int skip, int limit);
+
+//    /**
+//     * 按年份查找作者的论文发文量与引用量
+//     * @param name
+//     * @param institution
+//     * @return
+//     */
+//    Map<String, Object> getPapersCountAndQuote(String name, String institution, int begin, int end);
 }

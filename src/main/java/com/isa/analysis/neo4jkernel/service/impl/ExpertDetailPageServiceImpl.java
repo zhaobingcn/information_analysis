@@ -167,9 +167,15 @@ public class ExpertDetailPageServiceImpl implements ExpertDetailPageService {
     }
 
     @Override
-    public List<Map<String, Object>> generateAuthorsPapers(String name, String institution, int skip, int limit) {
+    public List<Map<String, Object>> generateAuthorsPapersPages(String name, String institution, int skip, int limit) {
         List<Map<String, Object>> authorPapers = expertDetailPageRepository.getPapersByAuthorWithPages(name, institution, skip, limit);
         return authorPapers;
+    }
+
+    @Override
+    public List<Map<String, Object>> generateAuthorsPapers(String name, String institution) {
+        List<Map<String, Object>> authorsPapers = expertDetailPageRepository.getPapersByAuthor(name, institution);
+        return authorsPapers;
     }
 
     @Override
@@ -185,6 +191,27 @@ public class ExpertDetailPageServiceImpl implements ExpertDetailPageService {
     @Override
     public int generateAuthorsPapersCount(String name, String institution) {
         return expertDetailPageRepository.getPapersCountByAuthor(name, institution);
+    }
+
+    @Override
+    public Map<Integer, ArrayList<Integer>> generateAuthorsAchievement(String name, String institution) {
+        List<Map<String, Object>> authorsPapers = expertDetailPageRepository.getPapersByAuthor(name, institution);
+
+        Map<Integer, ArrayList<Integer>> authorsAchievement = new LinkedHashMap<>();
+        for(int i=2006; i<2017; i++){
+            ArrayList<Integer> countAndQuote = new ArrayList<>();
+            countAndQuote.add(0);
+            countAndQuote.add(0);
+            authorsAchievement.put(i, countAndQuote);
+        }
+        for(Map<String, Object> paper: authorsPapers){
+            int year = Integer.parseInt(paper.get("date").toString());
+            if(year >=2006 && year <=2016){
+                authorsAchievement.get(year).set(0, authorsAchievement.get(year).get(0) + 1);
+                authorsAchievement.get(year).set(1, authorsAchievement.get(year).get(1) + Integer.parseInt(paper.get("quote").toString()));
+            }
+        }
+        return authorsAchievement;
     }
 
 }

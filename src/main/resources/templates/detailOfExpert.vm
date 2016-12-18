@@ -406,10 +406,10 @@
                             <div class="col-lg-9 col-xs-9">
                                 <div>
                                     <div id="big_stats" class="cf">
-                                        <div class="stat"> <i class="fa fa-link"></i> <span class="value">77</span> </div>
+                                        <div class="stat"> <i class="fa fa-link"></i> <span class="value">$authorsDetail.quote</span> </div>
                                         <!-- .stat -->
 
-                                        <div class="stat"> <i class="fa fa-star"></i> <span class="value">34</span> </div>
+                                        <div class="stat"> <i class="fa fa-star"></i> <span class="value">$authorsDetail.authorsPapersCount</span> </div>
                                         <!-- .stat -->
 
                                         <div class="stat"> <i class="fa fa-strikethrough"></i> <span class="value">56</span> </div>
@@ -519,9 +519,13 @@
                             <div class="list-group">
                                 #foreach($author in $cooperateAuthorsList)
                                     <a href="/detailOfExpert?name=$author.name&&institution=$author.institution" class="list-group-item">
-                                        <i class="fa fa-user fa-fw"></i> $author.name
-                                        <span class="pull-right text-muted">$author.institution
-                                    </span>
+                                            <i class="fa fa-user fa-fw"></i> $author.name
+##                                        </br>
+                                            $author.institution
+##                                        <span class="pull-right text-muted">
+##                                              $author.institution
+##                                        </span>
+
                                     </a>
                                 #end
                             </div>
