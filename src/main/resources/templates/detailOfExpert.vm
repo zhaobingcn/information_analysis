@@ -595,7 +595,7 @@
             loadAbilityPersonal();
             loadAchievementData();
             loadInterestPersonal();
-            loadRelationshipPersonal()
+            loadRelationshipPersonal(3)
         }
     </script>
 
