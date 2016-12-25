@@ -1,7 +1,7 @@
 package com.isa.analysis.neo4jkernel.repository.impl;
 
 import com.isa.analysis.neo4jkernel.generic.RelationshipTypes;
-import com.isa.analysis.neo4jkernel.repository.AuthorsQueryPageRepository;
+import com.isa.analysis.neo4jkernel.repository.ExpertQueryPageRepository;
 import org.neo4j.graphdb.Direction;
 import org.neo4j.graphdb.GraphDatabaseService;
 import org.neo4j.graphdb.Node;
@@ -10,8 +10,6 @@ import org.neo4j.graphdb.index.IndexHits;
 import org.neo4j.graphdb.index.IndexManager;
 import org.neo4j.helpers.collection.MapUtil;
 import org.neo4j.index.lucene.QueryContext;
-import org.neo4j.kernel.impl.coreapi.IndexManagerImpl;
-import org.neo4j.kernel.impl.coreapi.IndexProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -22,7 +20,7 @@ import java.util.*;
  * Created by zhzy on 2016/12/25.
  */
 @Repository
-public class AuthorsQueryPageRepositoryImpl implements AuthorsQueryPageRepository {
+public class ExpertQueryPageRepositoryImpl implements ExpertQueryPageRepository {
 
     @Autowired
     private GraphDatabaseService graphDatabaseService;
