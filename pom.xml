@@ -132,6 +132,12 @@
       <version>${weka.version}</version>
     </dependency>
 
+    <!-- lucene包 -->
+    <dependency>
+      <groupId>org.wltea.analyzer</groupId>
+      <artifactId>IKAnalyzer</artifactId>
+      <version>5.5.0</version>
+    </dependency>
   </dependencies>
 
   <build>

@@ -1,5 +1,7 @@
 package com.isa.analysis.controller;
 
+import com.isa.analysis.neo4jkernel.service.ExpertQueryPageService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -13,6 +15,9 @@ import java.util.Map;
 @Controller
 public class EQueryController {
 
+    @Autowired
+    private ExpertQueryPageService expertQueryPageService;
+
     @RequestMapping(value = "/queryOfExpert")
     public String expertQuery(){
         return "queryOfExpert";
@@ -23,7 +28,6 @@ public class EQueryController {
             @RequestParam(value = "name", required = false)String name,
             @RequestParam(value = "institution", required = false)String institution
     ){
-        
-        return null;
+        return expertQueryPageService.generateQueryAuthorsResult("詹毅", "中国电子科技集团");
     }
 }

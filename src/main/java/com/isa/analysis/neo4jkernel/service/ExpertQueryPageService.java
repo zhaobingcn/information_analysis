@@ -14,5 +14,5 @@ public interface ExpertQueryPageService {
      * @param institution
      * @return
      */
-    List<Map<String, Object>> generateQueryAuthorsResult(String name, String institution);
+    Map<String, Object> generateQueryAuthorsResult(String name, String institution);
 }

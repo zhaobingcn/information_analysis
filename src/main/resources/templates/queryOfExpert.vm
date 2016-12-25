@@ -403,18 +403,18 @@
                                     <div class="col-lg-4">
                                         <div class="form-group input-group">
                                             <span class="input-group-addon">姓名</span>
-                                            <input type="text" class="form-control" placeholder="输入专家姓名">
+                                            <input type="text" class="form-control" placeholder="输入专家姓名" id="authorsName">
                                         </div>
                                     </div>
                                     <div class="col-lg-4">
                                         <div class="form-group input-group">
                                             <span class="input-group-addon">机构</span>
-                                            <input type="text" class="form-control" placeholder="输入专家机构">
+                                            <input type="text" class="form-control" placeholder="输入专家机构" id="authorsInstitution">
                                         </div>
                                     </div>
                                     <div class="col-lg-4">
                                         <div class="form-group">
-                                            <button type="button" class="btn btn-outline btn-danger btn-block">检索</button>
+                                            <button type="button" class="btn btn-outline btn-danger btn-block" oncl>检索</button>
                                         </div>
                                     </div>
                                 </form>
@@ -665,7 +665,7 @@
                                                             </div>
                                                         </a>
                                                         <div>
-                                                            <span style="font-size: large">中国电子科技集团33所</span>
+                                                            <span style="font-size: large">中国电子科技集</span>
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-5 col-md-5">
@@ -718,8 +718,8 @@
 
                         </div>
                         <div class="panel-footer">
-                            <button type="button" class="btn btn-outline btn-default btn-block">专家对比分析</button>
-                            <button type="button" class="btn btn-outline btn-default btn-block">专家合作分析</button>
+                            <button type="button" id="cooperate-button" class="btn btn-outline btn-default btn-block">专家对比分析</button>
+                            <button type="button" id="contrast-button" class="btn btn-outline btn-default btn-block">专家合作分析</button>
                         </div>
                     </div>
                 </div>
@@ -751,7 +751,6 @@
                 $(this).remove();
             });
         })
-
     </script>
 
 </body>
