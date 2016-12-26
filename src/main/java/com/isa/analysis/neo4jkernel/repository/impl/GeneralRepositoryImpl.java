@@ -35,7 +35,9 @@ public class GeneralRepositoryImpl implements GeneralRepository {
     @Override
     @Transactional
     public Long getAuthorsQuoteCount(String name, String institution) {
-//        String query = "match (a:Author{name})"
+        String query = "call apoc.index.list yield type, name, config";
+        Result result = graphDatabaseService.execute(query);
         return null;
     }
+
 }

@@ -133,12 +133,30 @@
     </dependency>
 
     <!-- lucene包 -->
+
     <dependency>
       <groupId>org.wltea.analyzer</groupId>
       <artifactId>IKAnalyzer</artifactId>
       <version>5.5.0</version>
     </dependency>
+
+    <!--<dependency>-->
+      <!--<groupId>org.apoc</groupId>-->
+      <!--<artifactId>APOC</artifactId>-->
+      <!--<version>3.1.0</version>-->
+      <!--<exclusions>-->
+        <!--<exclusion>-->
+          <!--<groupId>org.neo4j</groupId>-->
+          <!--<artifactId>neo4j</artifactId>-->
+        <!--</exclusion>-->
+        <!--<exclusion>-->
+          <!--<groupId>org.apache</groupId>-->
+          <!--<artifactId>apache</artifactId>-->
+        <!--</exclusion>-->
+      <!--</exclusions>-->
+    <!--</dependency>-->
   </dependencies>
+
 
   <build>
     <plugins>
