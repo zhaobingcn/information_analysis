@@ -37,8 +37,8 @@ public class Neo4jConfig extends Neo4jConfiguration{
         config.driverConfiguration()
                 .setDriverClassName("org.neo4j.ogm.drivers.embedded.driver.EmbeddedDriver")
 //                .setDriverClassName("org.neo4j.ogm.drivers.http.driver.HttpDriver")
-//                .setURI("file:///ProfessionalSoftware/Neo4jDB/importdata");
-                .setURI("file:///MySoftware/importdata");
+                .setURI("file:///ProfessionalSoftware/Neo4jDB/importdata");
+//                .setURI("file:///MySoftware/importdata");
 //                .setURI("http://neo4j:654321@localhost:7474");
 //                .setURI("file:///opt/neo4j-community-3.0.4/data/databases/Neo4jDB");
         return config;
