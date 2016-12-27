@@ -2,10 +2,7 @@ package com.isa.analysis.neo4jkernel.repository.impl;
 
 import com.isa.analysis.neo4jkernel.formatservice.MapFormat;
 import com.isa.analysis.neo4jkernel.repository.ExpertDetailPageRepository;
-import org.neo4j.graphdb.GraphDatabaseService;
-import org.neo4j.graphdb.Node;
-import org.neo4j.graphdb.Path;
-import org.neo4j.graphdb.Result;
+import org.neo4j.graphdb.*;
 import org.neo4j.helpers.collection.MapUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;

@@ -17,10 +17,7 @@ import java.util.Collection;
  */
 @SpringBootApplication
 @Import(RepositoryRestMvcConfiguration.class)
-public class SpringbootSdnEmbeddedApplication extends WebMvcConfigurerAdapter {
-
-    @Autowired
-    private static AuthorRepository authorRepository;
+public class SpringbootSdnEmbeddedApplication {
 
     public static void main(String[] args){
         SpringApplication.run(SpringbootSdnEmbeddedApplication.class, args);
