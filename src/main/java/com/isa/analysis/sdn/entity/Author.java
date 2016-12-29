@@ -21,6 +21,9 @@ public class Author {
     @Property(name = "name")
     private String name;
 
+    @Property(name = "institution")
+    private String institution;
+
     @Relationship(type = "work_in", direction = Relationship.OUTGOING)
     private Work work;
 
@@ -45,6 +48,14 @@ public class Author {
 
     public void setWork(Work work) {
         this.work = work;
+    }
+
+    public String getInstitution() {
+        return institution;
+    }
+
+    public void setInstitution(String institution) {
+        this.institution = institution;
     }
 
     public List<Paper> getPapers() {

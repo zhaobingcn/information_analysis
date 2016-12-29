@@ -92,7 +92,7 @@ public class ExpertDetailPageServiceImpl implements ExpertDetailPageService {
         List<Map<String, Object>> categories = new ArrayList<>();
         categories.add(mapFormat.map("name", "专家", "keyword", null, "base", "Author"));
         for(int categoryIndex=1; categoryIndex<categoriesCount; categoryIndex++){
-            categories.add(mapFormat.map("name", categoryIndex+"层合作关系", "keyword", null, "base", "Author"));
+            categories.add(mapFormat.map("name", categoryIndex + "层合作关系", "keyword", null, "base", "Author"));
         }
         return mapFormat.map("type", "force", "categories", categories, "nodes", nodes, "links", rels);
     }

@@ -32,12 +32,12 @@ public class GeneralRepositoryImpl implements GeneralRepository {
         return papersCount;
     }
 
-    @Override
-    @Transactional
-    public Long getAuthorsQuoteCount(String name, String institution) {
-        String query = "call apoc.index.list yield type, name, config";
-        Result result = graphDatabaseService.execute(query);
-        return null;
-    }
+//    @Override
+//    @Transactional
+//    public Long getAuthorsQuoteCount(String name, String institution) {
+//        String query = "call apoc.index.list yield type, name, config";
+//        Result result = graphDatabaseService.execute(query);
+//        return null;
+//    }
 
 }

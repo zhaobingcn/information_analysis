@@ -19,6 +19,6 @@ public interface GeneralRepository {
      * @param institution
      * @return
      */
-    Long getAuthorsQuoteCount(String name, String institution);
+//    Long getAuthorsQuoteCount(String name, String institution);
 
 }
