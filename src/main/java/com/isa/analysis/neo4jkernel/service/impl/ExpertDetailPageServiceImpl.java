@@ -1,7 +1,6 @@
 package com.isa.analysis.neo4jkernel.service.impl;
 
 import com.isa.analysis.neo4jkernel.formatservice.MapFormat;
-import com.isa.analysis.neo4jkernel.generic.RelationshipTypes;
 import com.isa.analysis.neo4jkernel.repository.ExpertDetailPageRepository;
 import com.isa.analysis.neo4jkernel.service.ExpertDetailPageService;
 import org.neo4j.graphdb.Node;
@@ -71,16 +70,16 @@ public class ExpertDetailPageServiceImpl implements ExpertDetailPageService {
                 }else{
                     checkRels.add(relationship.getId());
                     int startNodeId, endNodeId;
-                    if(checkNodes.containsKey(relationship.getStartNode().getId())){
+//                    if(checkNodes.containsKey(relationship.getStartNode().getId())){
                         startNodeId = checkNodes.get(relationship.getStartNode().getId());
-                    }else{
-                        startNodeId = nodeId ++;
-                    }
-                    if(checkNodes.containsKey(relationship.getEndNode().getId())){
+//                    }else{
+//                        startNodeId = nodeId ++;
+//                    }
+//                    if(checkNodes.containsKey(relationship.getEndNode().getId())){
                         endNodeId = checkNodes.get(relationship.getEndNode().getId());
-                    }else{
-                        endNodeId = nodeId ++;
-                    }
+//                    }else{
+//                        endNodeId = nodeId ++;
+//                    }
                     HashMap<String, Object> rel = new HashMap<>();
                     rel.put("source", startNodeId);
                     rel.put("target", endNodeId);
